@@ -90,6 +90,13 @@
         meshes[0].scaling = new BABYLON.Vector3(0.1, 0.1, 0.1);
     });
 
+      const xr = await scene.createDefaultXRExperienceAsync({
+        // ask for an ar-session
+        uiOptions: {
+          sessionMode: "immersive-ar",
+        },
+      });
+
     return scene;
 };
                 window.initFunction = async function() {
@@ -124,3 +131,4 @@
         </script>
     </body>
 </html>
+
