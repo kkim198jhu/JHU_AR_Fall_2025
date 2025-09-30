@@ -55,9 +55,11 @@
           if (m instanceof BABYLON.AbstractMesh) {
             m.parent = modelPrefab;
             prefabChildMeshes.push(m);
+            // make the original invisible but keep it enabled so cloning works reliably
+            m.visibility = 0;
           }
         });
-        modelPrefab.setEnabled(false);
+        // do NOT disable the prefab node (we keep the originals invisible instead)
 
         // Spawn tracking
         const spawnedObjects = [];
@@ -75,12 +77,14 @@
             if (clone) {
               clone.parent = root;
               clone.isPickable = false;
+              // ensure clone is visible
+              clone.visibility = 1;
             }
           });
 
           const children = root.getChildMeshes();
           if (children.length === 0) {
-            // no fallback per request — do nothing if cloning failed
+            // do nothing if cloning failed (per request: no fallbacks)
             root.dispose();
             return;
           }
@@ -92,13 +96,14 @@
           return root;
         }
 
-        // WebXR setup
+        // WebXR setup (disable teleportation to prevent default joystick locomotion)
         const xr = await scene.createDefaultXRExperienceAsync({
           uiOptions: { sessionMode: "immersive-ar" },
-          optionalFeatures: true
+          optionalFeatures: true,
+          disableTeleportation: true
         });
 
-        // disable XR camera inputs
+        // clear camera inputs (extra safety)
         xr.baseExperience.camera.inputs.clear();
 
         let rightController = null;
