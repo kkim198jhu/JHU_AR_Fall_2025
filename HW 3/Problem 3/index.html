@@ -41,40 +41,55 @@
         const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
         light.intensity = 0.7;
 
-        // Demo geometry
-        const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", { diameter: 2 }, scene);
-        sphere.position.y = 1;
+        // Ground (pickable)
         const ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
         ground.isPickable = true;
 
         // Load model
         const MODEL_URL = "assets/model.glb";
         let modelPrefab = null;
+        const prefabChildMeshes = [];
         const result = await BABYLON.SceneLoader.ImportMeshAsync(null, "", MODEL_URL, scene);
         modelPrefab = new BABYLON.TransformNode("prefab", scene);
-        result.meshes.forEach(m => m.parent = modelPrefab);
+        result.meshes.forEach(m => {
+          if (m instanceof BABYLON.AbstractMesh) {
+            m.parent = modelPrefab;
+            prefabChildMeshes.push(m);
+          }
+        });
         modelPrefab.setEnabled(false);
 
-        // Spawn tracking (replaces the old single 'spawned' variable)
+        // Spawn tracking
         const spawnedObjects = [];
         let activeSpawn = null;
 
-        // Spawn function (always creates a new clone)
+        // Spawn function (clone meshes individually)
         function spawnModelAt(position) {
           if (!modelPrefab) return;
 
-          const clone = modelPrefab.clone("spawned_" + Date.now());
-          if (!clone) return;
-          clone.setEnabled(true);
-          clone.position.copyFrom(position);
+          const timestamp = Date.now();
+          const root = new BABYLON.TransformNode("spawned_" + timestamp, scene);
 
-          // If the prefab has child meshes, ensure they're usable
-          clone.getChildMeshes().forEach(m => {
-              m.isPickable = false; // optional
+          prefabChildMeshes.forEach((srcMesh, idx) => {
+            const clone = srcMesh.clone(srcMesh.name + "_clone_" + timestamp + "_" + idx);
+            if (clone) {
+              clone.parent = root;
+              clone.isPickable = false;
+            }
           });
 
-          spawnedObjects.push(clone);
-          activeSpawn = clone;
+          const children = root.getChildMeshes();
+          if (children.length === 0) {
+            // no fallback per request — do nothing if cloning failed
+            root.dispose();
+            return;
+          }
+
+          root.setEnabled(true);
+          root.position.copyFrom(position);
+          spawnedObjects.push(root);
+          activeSpawn = root;
+          return root;
         }
 
         // WebXR setup
@@ -83,13 +98,8 @@
           optionalFeatures: true
         });
 
-        // Disable default camera inputs that respond to gamepads/joystick in XR
-        try {
-          xr.baseExperience.camera.inputs.clear();
-        } catch (e) {
-          // if something's different in this version, ignore silently
-          console.warn("Could not clear XR camera inputs:", e);
-        }
+        // disable XR camera inputs
+        xr.baseExperience.camera.inputs.clear();
 
         let rightController = null;
         xr.input.onControllerAddedObservable.add(ctrl => {
@@ -97,9 +107,10 @@
             rightController = ctrl;
           }
 
-          // Extra safety: clear thumbstick axis observable on this controller
           ctrl.motionController?.getComponent("xr-standard-thumbstick")
-              ?.onAxisValueChangedObservable.clear();
+            ?.onAxisValueChangedObservable.clear();
+
+          xr.baseExperience.camera.inputs.clear();
         });
         xr.input.onControllerRemovedObservable.add(ctrl => {
           if (rightController && ctrl.uniqueId === rightController.uniqueId) rightController = null;
@@ -113,7 +124,6 @@
           const gp = rightController.inputSource.gamepad;
           if (!gp) return;
 
-          // Trigger to place
           const triggerVal = gp.buttons[0]?.value || 0;
           const triggerPressed = triggerVal > 0.15;
 
@@ -124,7 +134,6 @@
           }
           prevTrigger = triggerPressed;
 
-          // Thumbstick to move the most recently spawned object
           if (activeSpawn) {
             const axisX = gp.axes[2] ?? gp.axes[0] ?? 0;
             const axisY = gp.axes[3] ?? gp.axes[1] ?? 0;
