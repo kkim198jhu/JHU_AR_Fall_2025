@@ -55,18 +55,26 @@
         result.meshes.forEach(m => m.parent = modelPrefab);
         modelPrefab.setEnabled(false);
 
+        // Spawn tracking
+        const spawnedObjects = [];
+        let activeSpawn = null;
+
         // Spawn function
         function spawnModelAt(position) {
-        if (!modelPrefab) return;
+          if (!modelPrefab) return;
 
-        const clone = modelPrefab.clone("spawned_" + Date.now());
-        clone.setEnabled(true);
-        clone.position.copyFrom(position);
+          const clone = modelPrefab.clone("spawned_" + Date.now());
+          if (!clone) return;
+          clone.setEnabled(true);
+          clone.position.copyFrom(position);
 
-        // Optionally, if your prefab has children meshes:
-        clone.getChildMeshes().forEach(m => {
-            m.isPickable = false; // optional
-        });
+          // Optionally, if your prefab has children meshes:
+          clone.getChildMeshes().forEach(m => {
+              m.isPickable = false; // optional
+          });
+
+          spawnedObjects.push(clone);
+          activeSpawn = clone;
         }
 
         // WebXR setup
@@ -77,12 +85,12 @@
 
         let rightController = null;
         xr.input.onControllerAddedObservable.add(ctrl => {
-        if (ctrl.inputSource && ctrl.inputSource.handedness === "right") {
+          if (ctrl.inputSource && ctrl.inputSource.handedness === "right") {
             rightController = ctrl;
-        }
+          }
 
-        ctrl.motionController?.getComponent("xr-standard-thumbstick")
-            ?.onAxisValueChangedObservable.clear();
+          ctrl.motionController?.getComponent("xr-standard-thumbstick")
+              ?.onAxisValueChangedObservable.clear();
         });
         xr.input.onControllerRemovedObservable.add(ctrl => {
           if (rightController && ctrl.uniqueId === rightController.uniqueId) rightController = null;
@@ -108,7 +116,7 @@
           prevTrigger = triggerPressed;
 
           // Thumbstick to move
-          if (spawned) {
+          if (activeSpawn) {
             const axisX = gp.axes[2] ?? gp.axes[0] ?? 0;
             const axisY = gp.axes[3] ?? gp.axes[1] ?? 0;
             if (Math.abs(axisX) > 0.02 || Math.abs(axisY) > 0.02) {
@@ -116,7 +124,7 @@
               camF.y = 0; camF.normalize();
               const camR = BABYLON.Vector3.Cross(camF, BABYLON.Vector3.Up()).normalize();
               const move = camR.scale(axisX * moveSpeed).add(camF.scale(axisY * moveSpeed));
-              spawned.position.addInPlace(move);
+              activeSpawn.position.addInPlace(move);
             }
           }
         });
