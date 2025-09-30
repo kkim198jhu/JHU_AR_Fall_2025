@@ -52,18 +52,21 @@
         let modelPrefab = null;
         const result = await BABYLON.SceneLoader.ImportMeshAsync(null, "", MODEL_URL, scene);
         modelPrefab = new BABYLON.TransformNode("prefab", scene);
-        result.meshes.forEach(m => { if (m !== scene) m.parent = modelPrefab; });
+        result.meshes.forEach(m => m.parent = modelPrefab);
         modelPrefab.setEnabled(false);
 
         // Spawn function
-        let spawned = null;
         function spawnModelAt(position) {
-          if (!modelPrefab) return;
-          if (!spawned) {
-            spawned = modelPrefab.clone("spawned");
-            spawned.setEnabled(true);
-          }
-          spawned.position.copyFrom(position);
+        if (!modelPrefab) return;
+
+        const clone = modelPrefab.clone("spawned_" + Date.now());
+        clone.setEnabled(true);
+        clone.position.copyFrom(position);
+
+        // Optionally, if your prefab has children meshes:
+        clone.getChildMeshes().forEach(m => {
+            m.isPickable = false; // optional
+        });
         }
 
         // WebXR setup
@@ -74,7 +77,12 @@
 
         let rightController = null;
         xr.input.onControllerAddedObservable.add(ctrl => {
-          if (ctrl.inputSource && ctrl.inputSource.handedness === "right") rightController = ctrl;
+        if (ctrl.inputSource && ctrl.inputSource.handedness === "right") {
+            rightController = ctrl;
+        }
+
+        ctrl.motionController?.getComponent("xr-standard-thumbstick")
+            ?.onAxisValueChangedObservable.clear();
         });
         xr.input.onControllerRemovedObservable.add(ctrl => {
           if (rightController && ctrl.uniqueId === rightController.uniqueId) rightController = null;
