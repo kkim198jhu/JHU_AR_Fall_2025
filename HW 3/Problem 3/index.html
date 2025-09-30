@@ -55,11 +55,11 @@
         result.meshes.forEach(m => m.parent = modelPrefab);
         modelPrefab.setEnabled(false);
 
-        // Spawn tracking
+        // Spawn tracking (replaces the old single 'spawned' variable)
         const spawnedObjects = [];
         let activeSpawn = null;
 
-        // Spawn function
+        // Spawn function (always creates a new clone)
         function spawnModelAt(position) {
           if (!modelPrefab) return;
 
@@ -68,7 +68,7 @@
           clone.setEnabled(true);
           clone.position.copyFrom(position);
 
-          // Optionally, if your prefab has children meshes:
+          // If the prefab has child meshes, ensure they're usable
           clone.getChildMeshes().forEach(m => {
               m.isPickable = false; // optional
           });
@@ -83,12 +83,21 @@
           optionalFeatures: true
         });
 
+        // Disable default camera inputs that respond to gamepads/joystick in XR
+        try {
+          xr.baseExperience.camera.inputs.clear();
+        } catch (e) {
+          // if something's different in this version, ignore silently
+          console.warn("Could not clear XR camera inputs:", e);
+        }
+
         let rightController = null;
         xr.input.onControllerAddedObservable.add(ctrl => {
           if (ctrl.inputSource && ctrl.inputSource.handedness === "right") {
             rightController = ctrl;
           }
 
+          // Extra safety: clear thumbstick axis observable on this controller
           ctrl.motionController?.getComponent("xr-standard-thumbstick")
               ?.onAxisValueChangedObservable.clear();
         });
@@ -115,7 +124,7 @@
           }
           prevTrigger = triggerPressed;
 
-          // Thumbstick to move
+          // Thumbstick to move the most recently spawned object
           if (activeSpawn) {
             const axisX = gp.axes[2] ?? gp.axes[0] ?? 0;
             const axisY = gp.axes[3] ?? gp.axes[1] ?? 0;
