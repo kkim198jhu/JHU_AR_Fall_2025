@@ -77,6 +77,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 1eb49a85f5ed945b8b9f422c70641564, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5461434742545169683}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 1eb49a85f5ed945b8b9f422c70641564, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4983620438480101628}
     - targetCorrespondingSourceObject: {fileID: -2291093572793062224, guid: 1eb49a85f5ed945b8b9f422c70641564, type: 3}
       insertIndex: -1
       addedObject: {fileID: 303920346832640022}
@@ -185,3 +188,20 @@ MonoBehaviour:
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
   _physicsGrabbable: {fileID: 0}
+--- !u!114 &4983620438480101628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5606949496726096057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c59415d858a09498109d1f4a9ced9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bounce
+  explosion1: {fileID: 4187817191178559793, guid: 080f7c199e943b94bb6abee6c99b2a95, type: 3}
+  explosion2: {fileID: 5484455973323147821, guid: eb7d21f9ce121d848b0ec2a254323ce0, type: 3}
+  rb: {fileID: 0}
+  spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
+  expThreshold: 10
