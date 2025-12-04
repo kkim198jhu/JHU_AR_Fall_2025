@@ -27,14 +27,20 @@ public class Bounce : MonoBehaviour
         {
             explosion1.transform.position = col.contacts[0].point;
             explosion1.Play();
-            explosion2.transform.position = col.contacts[0].point;
-            explosion2.Play();
+            if (explosion2 != null)
+            {
+                explosion2.transform.position = col.contacts[0].point;
+                explosion2.Play();
+            }
             Destroy(gameObject);
         }
         else
         {
-            spark.transform.position = col.contacts[0].point;
-            spark.Play();
+            if (spark != null)
+            {
+                spark.transform.position = col.contacts[0].point;
+                spark.Play();
+            }
         }
         
 
