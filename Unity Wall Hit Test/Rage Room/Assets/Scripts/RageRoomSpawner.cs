@@ -21,6 +21,9 @@ public class RageRoomSpawner : MonoBehaviour
     public float tableVerticalOffset = -3.0f;  // below eye level
     public int itemsOnTable = 6;               // how many items to place
 
+    [Header("XR Input")]
+    public InputActionProperty leftYButtonAction; // assign in Inspector
+
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
     private Transform currentTable;
 
@@ -28,6 +31,29 @@ public class RageRoomSpawner : MonoBehaviour
     {
         // spawn a table and items when the scene starts
         SpawnTableWithItems();
+    }
+
+    private void OnEnable()
+    {
+        if (leftYButtonAction != null)
+        {
+            leftYButtonAction.action.Enable();
+            leftYButtonAction.action.performed += OnLeftYPressed;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (leftYButtonAction != null)
+        {
+            leftYButtonAction.action.performed -= OnLeftYPressed;
+            leftYButtonAction.action.Disable();
+        }
+    }
+
+    private void OnLeftYPressed(InputAction.CallbackContext context)
+    {
+        SpawnRandom();
     }
 
     public void SpawnRandom()
@@ -110,9 +136,7 @@ public class RageRoomSpawner : MonoBehaviour
         tablePoints.SpawnItems(rageObjectPrefabs, itemsOnTable);
     }
 
-    /// <summary>
     /// Makes a spawned object AR-grabbable: adds Collider + Rigidbody and tags it for AR touch grabbing
-    /// </summary>
     private void MakeGrabbable(GameObject obj)
     {
         if (obj.GetComponent<Collider>() == null)

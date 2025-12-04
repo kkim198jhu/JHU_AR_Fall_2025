@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492976203}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 555725d48e9051a4bb6b8d45178c2fdd, type: 3}
   m_Name: 
@@ -3017,9 +3017,21 @@ MonoBehaviour:
   verticalOffset: -1
   maxSimultaneousObjects: 50
   tablePrefab: {fileID: 9076878517542965716, guid: 2c546ec84239d47509ad81d1216ee662, type: 3}
-  tableForwardDistance: 2
+  tableForwardDistance: 0.5
   tableVerticalOffset: -2.5
   itemsOnTable: 2
+  leftYButtonAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Left Y Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 8ff1f484-c869-49c9-abd9-58b5a3a686ad
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!4 &1760120976
 Transform:
   m_ObjectHideFlags: 0

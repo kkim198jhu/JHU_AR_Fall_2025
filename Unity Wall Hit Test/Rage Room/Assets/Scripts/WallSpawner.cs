@@ -7,27 +7,15 @@ public class WallSpawner : MonoBehaviour
     public Transform playerCamera; // CenterEyeAnchor
     public float spawnDistance = 2f;
 
-    //  NEW: adjust height of spawned objects
+    // Adjust height of spawned objects
     public float verticalOffset = -0.25f;
-
-    private bool hasSpawned = false;
 
     void Update()
     {
-        float trigger = OVRInput.Get(
-            OVRInput.Axis1D.PrimaryIndexTrigger,
-            OVRInput.Controller.RTouch
-        );
-
-        if (trigger > 0.8f && !hasSpawned)
+        // A button on right controller = Button.One
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
         {
             SpawnWall();
-            hasSpawned = true;
-        }
-        
-        if (trigger < 0.1f)
-        {
-            hasSpawned = false;
         }
     }
 
