@@ -13,7 +13,7 @@ public class WallGen : MonoBehaviour
 
         foreach (MRUKAnchor anc in room.Anchors)
         {
-            if (anc.HasLabel("WALL_FACE"))
+            if (anc.HasLabel("WALL_FACE") ||  anc.HasLabel("FLOOR") || anc.HasLabel("CEILING"))
             {
                 var go = anc.gameObject;
 
