@@ -8,7 +8,7 @@ public class RageRoomSpawner : MonoBehaviour
     public List<GameObject> rageObjectPrefabs;
 
     [Header("Spawn origin")]
-    public Transform spawnOrigin;        // usually the camera
+    public Transform spawnOrigin;        // AR Camera (child of AR Session Origin)
     public float forwardDistance = 1.5f; 
     public float verticalOffset = -0.2f; 
 
@@ -17,8 +17,8 @@ public class RageRoomSpawner : MonoBehaviour
 
     [Header("Table spawning")]
     public GameObject tablePrefab;
-    public float tableForwardDistance = 1.5f;  // in front of eyes
-    public float tableVerticalOffset = -1.0f;  // below eye level
+    public float tableForwardDistance = 0f;  // in front of eyes
+    public float tableVerticalOffset = -3.0f;  // below eye level
     public int itemsOnTable = 6;               // how many items to place
 
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
@@ -59,8 +59,10 @@ public class RageRoomSpawner : MonoBehaviour
             Vector3.up * verticalOffset;
 
         Quaternion spawnRot = Random.rotation;
-        GameObject instance = Instantiate(prefab, spawnPos, spawnRot);
 
+        // Spawn the object and make it grabbable
+        GameObject instance = Instantiate(prefab, spawnPos, spawnRot);
+        MakeGrabbable(instance);
         spawnedObjects.Add(instance);
     }
 
@@ -86,8 +88,8 @@ public class RageRoomSpawner : MonoBehaviour
             Vector3.up * tableVerticalOffset;
 
         // have table face player
-        Quaternion tableRotation =Quaternion.Euler(0f, origin.eulerAngles.y, 0f) * tablePrefab.transform.rotation;
-        
+        Quaternion tableRotation = Quaternion.Euler(0f, origin.eulerAngles.y, 0f) * tablePrefab.transform.rotation;
+
         if (currentTable != null)
         {
             Destroy(currentTable.gameObject);
@@ -108,6 +110,25 @@ public class RageRoomSpawner : MonoBehaviour
         tablePoints.SpawnItems(rageObjectPrefabs, itemsOnTable);
     }
 
+    /// <summary>
+    /// Makes a spawned object AR-grabbable: adds Collider + Rigidbody and tags it for AR touch grabbing
+    /// </summary>
+    private void MakeGrabbable(GameObject obj)
+    {
+        if (obj.GetComponent<Collider>() == null)
+            obj.AddComponent<BoxCollider>();
+
+        if (obj.GetComponent<Rigidbody>() == null)
+        {
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.isKinematic = false;
+        }
+
+        // mark for AR grabbing
+        obj.tag = "Grabbable";
+    }
+
 #if UNITY_EDITOR
     private void Update()
     {
@@ -117,7 +138,6 @@ public class RageRoomSpawner : MonoBehaviour
         {
             SpawnRandom();
         }
-
     }
 #endif
 }

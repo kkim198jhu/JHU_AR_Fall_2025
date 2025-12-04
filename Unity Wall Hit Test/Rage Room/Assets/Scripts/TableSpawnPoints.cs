@@ -20,16 +20,13 @@ public class TableSpawnPoints : MonoBehaviour
             return;
         }
 
-        // we won't spawn more items than we have slots
+        // clamp to available spawn points
         itemCount = Mathf.Clamp(itemCount, 0, spawnPoints.Count);
 
-        // make a shuffled list of spawn point indices so we use random slots
+        // shuffle spawn indices
         List<int> indices = new List<int>();
         for (int i = 0; i < spawnPoints.Count; i++)
-        {
             indices.Add(i);
-        }
-
         for (int i = 0; i < indices.Count; i++)
         {
             int j = Random.Range(i, indices.Count);
@@ -38,14 +35,35 @@ public class TableSpawnPoints : MonoBehaviour
             indices[j] = temp;
         }
 
-        // fill the first itemCount shuffled slots with random items
+        // spawn items on the first itemCount shuffled points
         for (int k = 0; k < itemCount; k++)
         {
             Transform point = spawnPoints[indices[k]];
             if (point == null) continue;
 
             GameObject prefab = itemPrefabs[Random.Range(0, itemPrefabs.Count)];
-            Instantiate(prefab, point.position, point.rotation);
+            GameObject instance = Instantiate(prefab, point.position, point.rotation);
+
+            // make AR-grabbable
+            MakeGrabbable(instance);
         }
+    }
+
+    private void MakeGrabbable(GameObject obj)
+    {
+        // add collider if missing
+        if (obj.GetComponent<Collider>() == null)
+            obj.AddComponent<BoxCollider>();
+
+        // add Rigidbody if missing
+        if (obj.GetComponent<Rigidbody>() == null)
+        {
+            Rigidbody rb = obj.AddComponent<Rigidbody>();
+            rb.useGravity = true;
+            rb.isKinematic = false;
+        }
+
+        // mark for AR grabbing
+        obj.tag = "Grabbable";
     }
 }
