@@ -1829,7 +1829,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938742901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1874,7 +1874,7 @@ VisualEffect:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938742901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Asset: {fileID: 8926484042661614526, guid: fd3b28145d6955042a661279c3d3fe07, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
@@ -1907,7 +1907,7 @@ VisualEffect:
       m_Array:
       - m_Value: 1
         m_Name: loop
-        m_Overridden: 1
+        m_Overridden: 0
 --- !u!1001 &1139674362
 PrefabInstance:
   m_ObjectHideFlags: 0
