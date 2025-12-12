@@ -188,7 +188,7 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints:
-  - {fileID: 7069663346051198818}
+  - {fileID: -7533189417220595870}
 --- !u!65 &-7533189417220595870
 BoxCollider:
   m_ObjectHideFlags: 0
