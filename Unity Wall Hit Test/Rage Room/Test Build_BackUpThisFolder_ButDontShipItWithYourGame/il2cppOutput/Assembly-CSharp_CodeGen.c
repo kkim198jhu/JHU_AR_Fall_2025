@@ -36,6 +36,9 @@ extern void Sparkexp_Start_m5F8BEEDA9242E2BE381B870783A92B5241343C81 (void);
 extern void Sparkexp_Update_m121B5E19220F28480B651B6818AE90402812AEAF (void);
 extern void Sparkexp_OnCollisionEnter_m30F395BFBA703A3D38D22D8E9003F09E2CECA0CA (void);
 extern void Sparkexp__ctor_mD42C8E656766F32D956D4B196D89BB988F50CB96 (void);
+extern void StartMenuManager_StartSingleplayer_mF7C5EBFD61AA655564B1A26F19830A1383E0BF27 (void);
+extern void StartMenuManager_MultiplayerWIP_m53E0780A8681FFB664D375463C784F321D19F561 (void);
+extern void StartMenuManager__ctor_m9083E0B61BE62D96D8144EC16D955C9002F3725A (void);
 extern void TableSpawnPoints_SpawnItems_m7870506C38B3A88A13C6F7EA3FC81E31DAE32F78 (void);
 extern void TableSpawnPoints_MakeGrabbable_m825D1BDF973F96B7A3D34A68681E4C70DEE1CE4A (void);
 extern void TableSpawnPoints__ctor_m2FE068675F92A573F62854C004189F0589C5B996 (void);
@@ -48,7 +51,7 @@ extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[41] = 
+static Il2CppMethodPointer s_methodPointers[44] = 
 {
 	Bounceffect_Start_m47EB395941987D6D27F6315E4AFFD4CFAD4CB338,
 	Bounceffect_Update_m59896C129FA79181E678AA964578AF81E2CC5436,
@@ -79,6 +82,9 @@ static Il2CppMethodPointer s_methodPointers[41] =
 	Sparkexp_Update_m121B5E19220F28480B651B6818AE90402812AEAF,
 	Sparkexp_OnCollisionEnter_m30F395BFBA703A3D38D22D8E9003F09E2CECA0CA,
 	Sparkexp__ctor_mD42C8E656766F32D956D4B196D89BB988F50CB96,
+	StartMenuManager_StartSingleplayer_mF7C5EBFD61AA655564B1A26F19830A1383E0BF27,
+	StartMenuManager_MultiplayerWIP_m53E0780A8681FFB664D375463C784F321D19F561,
+	StartMenuManager__ctor_m9083E0B61BE62D96D8144EC16D955C9002F3725A,
 	TableSpawnPoints_SpawnItems_m7870506C38B3A88A13C6F7EA3FC81E31DAE32F78,
 	TableSpawnPoints_MakeGrabbable_m825D1BDF973F96B7A3D34A68681E4C70DEE1CE4A,
 	TableSpawnPoints__ctor_m2FE068675F92A573F62854C004189F0589C5B996,
@@ -92,55 +98,58 @@ static Il2CppMethodPointer s_methodPointers[41] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[41] = 
+static const int32_t s_InvokerIndices[44] = 
 {
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	18239,
-	18036,
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	18036,
-	23488,
-	23488,
-	23488,
-	23488,
-	18505,
-	23488,
-	23488,
-	18036,
-	23488,
-	38109,
-	23488,
-	13094,
-	23488,
-	23488,
-	18036,
-	23488,
-	9502,
-	18036,
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	23488,
-	38164,
-	23488,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	18565,
+	18362,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	18362,
+	23913,
+	23913,
+	23913,
+	23913,
+	18842,
+	23913,
+	23913,
+	18362,
+	23913,
+	38846,
+	23913,
+	13332,
+	23913,
+	23913,
+	18362,
+	23913,
+	23913,
+	23913,
+	23913,
+	9685,
+	18362,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	23913,
+	38910,
+	23913,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	41,
+	44,
 	s_methodPointers,
 	0,
 	NULL,

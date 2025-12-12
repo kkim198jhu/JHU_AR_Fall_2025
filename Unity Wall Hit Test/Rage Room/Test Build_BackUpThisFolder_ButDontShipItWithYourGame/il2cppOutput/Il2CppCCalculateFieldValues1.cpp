@@ -21357,7 +21357,9 @@ struct OpenXRFeature_tC2F8F480D62C277B2ECDD605F64E45053CD85143  : public Scripta
 	String_t* ___openxrExtensionStrings;
 	String_t* ___company;
 	int32_t ___priority;
+	String_t* ___targetOpenXRApiVersion;
 	bool ___required;
+	String_t* ___customRuntimeLoaderName;
 	bool ___internalFieldsUpdated;
 };
 struct PinchGestureRecognizer_tE572B5EFA291C87001D3169F7C684C3723122501  : public GestureRecognizer_1_t39120F08C92375D6A5B7C9091DC591F2F687AD6A
