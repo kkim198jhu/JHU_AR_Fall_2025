@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class RageRoomSpawner : MonoBehaviour
 {
@@ -9,87 +8,66 @@ public class RageRoomSpawner : MonoBehaviour
 
     [Header("Spawn origin")]
     public Transform spawnOrigin;        // AR Camera (child of AR Session Origin)
-    public float forwardDistance = 1.5f; 
-    public float verticalOffset = -0.2f; 
+    public float forwardDistance = 1.5f;
+    public float verticalOffset = -0.2f;
 
     [Header("Limits")]
     public int maxSimultaneousObjects = 50;
 
     [Header("Table spawning")]
     public GameObject tablePrefab;
-    public float tableForwardDistance = 0f;  // in front of eyes
-    public float tableVerticalOffset = -3.0f;  // below eye level
-    public int itemsOnTable = 6;               // how many items to place
+    public float tableForwardDistance = 0f;
+    public float tableVerticalOffset = -3.0f;
+    public int itemsOnTable = 6;
 
-    [Header("XR Input")]
-    public InputActionProperty leftYButtonAction; // assign in Inspector
+    [Header("One-item spawning")]
+    public Transform[] tableSpawnPoints; // Assign the table spawn points here
+    public Transform rightHand;           // Optional, for reference
 
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
     private Transform currentTable;
 
     private void Start()
     {
-        // spawn a table and items when the scene starts
         SpawnTableWithItems();
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        if (leftYButtonAction != null)
+        // B button on right Meta Quest controller = Button.Two
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
-            leftYButtonAction.action.Enable();
-            leftYButtonAction.action.performed += OnLeftYPressed;
+            SpawnOneItemOnTable();
         }
     }
 
-    private void OnDisable()
+    // -----------------------------------------
+    // Spawn ONE item on the table
+    // -----------------------------------------
+    private void SpawnOneItemOnTable()
     {
-        if (leftYButtonAction != null)
+        if (tableSpawnPoints == null || tableSpawnPoints.Length == 0)
         {
-            leftYButtonAction.action.performed -= OnLeftYPressed;
-            leftYButtonAction.action.Disable();
-        }
-    }
-
-    private void OnLeftYPressed(InputAction.CallbackContext context)
-    {
-        SpawnRandom();
-    }
-
-    public void SpawnRandom()
-    {
-        if (rageObjectPrefabs == null || rageObjectPrefabs.Count == 0)
-        {
-            Debug.LogWarning("RageRoomSpawner: No rageObjectPrefabs assigned.");
+            Debug.LogWarning("No table spawn points assigned!");
             return;
         }
 
-        // clean up destroyed entries
-        spawnedObjects.RemoveAll(o => o == null);
-
-        // enforce max count
-        if (spawnedObjects.Count >= maxSimultaneousObjects)
+        // Find first empty spawn point
+        foreach (Transform point in tableSpawnPoints)
         {
-            Destroy(spawnedObjects[0]);
-            spawnedObjects.RemoveAt(0);
+            if (point.childCount == 0) // empty spot
+            {
+                int index = Random.Range(0, rageObjectPrefabs.Count);
+                GameObject prefab = rageObjectPrefabs[index];
+
+                GameObject instance = Instantiate(prefab, point.position, point.rotation, point);
+                MakeGrabbable(instance);
+                spawnedObjects.Add(instance);
+                return; // stop after spawning ONE
+            }
         }
 
-        int index = Random.Range(0, rageObjectPrefabs.Count);
-        GameObject prefab = rageObjectPrefabs[index];
-
-        Transform origin = spawnOrigin != null ? spawnOrigin : Camera.main.transform;
-
-        Vector3 spawnPos =
-            origin.position +
-            origin.forward * forwardDistance +
-            Vector3.up * verticalOffset;
-
-        Quaternion spawnRot = Random.rotation;
-
-        // Spawn the object and make it grabbable
-        GameObject instance = Instantiate(prefab, spawnPos, spawnRot);
-        MakeGrabbable(instance);
-        spawnedObjects.Add(instance);
+        Debug.Log("All table spots are filled!");
     }
 
     public void SpawnTableWithItems()
@@ -113,7 +91,6 @@ public class RageRoomSpawner : MonoBehaviour
             origin.forward * tableForwardDistance +
             Vector3.up * tableVerticalOffset;
 
-        // have table face player
         Quaternion tableRotation = Quaternion.Euler(0f, origin.eulerAngles.y, 0f) * tablePrefab.transform.rotation;
 
         if (currentTable != null)
@@ -125,18 +102,26 @@ public class RageRoomSpawner : MonoBehaviour
         GameObject tableInstance = Instantiate(tablePrefab, tablePosition, tableRotation);
         currentTable = tableInstance.transform;
 
-        // ask the table to spawn items on its spawn points
-        TableSpawnPoints tablePoints = tableInstance.GetComponent<TableSpawnPoints>();
-        if (tablePoints == null)
+        // Optional: assign table spawn points automatically
+        if (tableSpawnPoints == null || tableSpawnPoints.Length == 0)
         {
-            Debug.LogWarning("RageRoomSpawner: table prefab has no TableSpawnPoints component.");
-            return;
+            tableSpawnPoints = tableInstance.GetComponentsInChildren<Transform>(); 
+            // Note: filter child transforms if needed
         }
 
-        tablePoints.SpawnItems(rageObjectPrefabs, itemsOnTable);
+        // Spawn initial items
+        int count = Mathf.Min(itemsOnTable, tableSpawnPoints.Length);
+        for (int i = 0; i < count; i++)
+        {
+            int index = Random.Range(0, rageObjectPrefabs.Count);
+            GameObject prefab = rageObjectPrefabs[index];
+
+            GameObject instance = Instantiate(prefab, tableSpawnPoints[i].position, tableSpawnPoints[i].rotation, tableSpawnPoints[i]);
+            MakeGrabbable(instance);
+            spawnedObjects.Add(instance);
+        }
     }
 
-    /// Makes a spawned object AR-grabbable: adds Collider + Rigidbody and tags it for AR touch grabbing
     private void MakeGrabbable(GameObject obj)
     {
         if (obj.GetComponent<Collider>() == null)
@@ -149,19 +134,6 @@ public class RageRoomSpawner : MonoBehaviour
             rb.isKinematic = false;
         }
 
-        // mark for AR grabbing
         obj.tag = "Grabbable";
     }
-
-#if UNITY_EDITOR
-    private void Update()
-    {
-        if (Keyboard.current == null) return;
-
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            SpawnRandom();
-        }
-    }
-#endif
 }
