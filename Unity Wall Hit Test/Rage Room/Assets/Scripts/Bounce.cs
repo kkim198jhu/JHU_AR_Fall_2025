@@ -8,7 +8,7 @@ public class Bounce : MonoBehaviour
     public Rigidbody rb;
     
     public ParticleSystem spark;
-    public float expThreshold = 10f;
+    public float expThreshold = 2f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
