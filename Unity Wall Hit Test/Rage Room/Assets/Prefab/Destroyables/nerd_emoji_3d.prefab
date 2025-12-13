@@ -87,6 +87,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: d15ac12c07cc94bf495b4f3fcb07674d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7925153888242706500}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: d15ac12c07cc94bf495b4f3fcb07674d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1338119527621600920}
   m_SourcePrefab: {fileID: -5645937942226959685, guid: d15ac12c07cc94bf495b4f3fcb07674d, type: 3}
 --- !u!1 &3588807270093774505 stripped
 GameObject:
@@ -203,3 +206,20 @@ MonoBehaviour:
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
   m_grabPoints: []
+--- !u!114 &1338119527621600920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3588807270093774505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c59415d858a09498109d1f4a9ced9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bounce
+  explosion1: {fileID: 4187817191178559793, guid: 080f7c199e943b94bb6abee6c99b2a95, type: 3}
+  explosion2: {fileID: 5484455973323147821, guid: eb7d21f9ce121d848b0ec2a254323ce0, type: 3}
+  rb: {fileID: 0}
+  spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
+  expThreshold: 2

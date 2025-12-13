@@ -193,7 +193,7 @@ MonoBehaviour:
   explosion2: {fileID: 0}
   rb: {fileID: 0}
   spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
-  expThreshold: 10
+  expThreshold: 2
 --- !u!114 &5235991192038986774
 MonoBehaviour:
   m_ObjectHideFlags: 0
