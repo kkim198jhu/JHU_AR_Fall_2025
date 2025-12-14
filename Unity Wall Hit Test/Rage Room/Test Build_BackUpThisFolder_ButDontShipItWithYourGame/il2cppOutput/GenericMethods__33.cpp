@@ -16181,7 +16181,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AssertUtils_AssertField_TisRuntimeObject
 		return;
 	}
 }
-// Method Definition Index: 150053
+// Method Definition Index: 150111
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AssetBundle_LoadAsset_TisRuntimeObject_m7F36E1C08FC32ADB47C34513522D958FA6E09C47_gshared (AssetBundle_tB38418819A49060CD738CB21541649340F082943* __this, String_t* ___0_name, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -16204,7 +16204,7 @@ IL_001a:
 		return L_4;
 	}
 }
-// Method Definition Index: 149208
+// Method Definition Index: 149283
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* AssistiveSupport_GetService_TisRuntimeObject_m6794BFDFCCF9DE3D55ACBEE780E5DAA1B51DC524_gshared (const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -16249,7 +16249,7 @@ IL_0027:
 		return L_5;
 	}
 }
-// Method Definition Index: 149208
+// Method Definition Index: 149283
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void AssistiveSupport_GetService_TisIl2CppFullySharedGenericAny_m0DB9754A26372BCA8989174670841E7D50647E4F_gshared (Il2CppFullySharedGenericAny* il2cppRetVal, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))

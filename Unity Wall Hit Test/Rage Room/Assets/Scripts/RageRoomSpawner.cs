@@ -17,7 +17,7 @@ public class RageRoomSpawner : MonoBehaviour
     [Header("Table spawning")]
     public GameObject tablePrefab;
     public float tableForwardDistance = 0f;
-    public float tableVerticalOffset = -3.0f;
+    public float tableVerticalOffset = 0f;
     public int itemsOnTable = 6;
 
     [Header("One-item spawning")]
@@ -46,29 +46,30 @@ public class RageRoomSpawner : MonoBehaviour
     // -----------------------------------------
     private void SpawnOneItemOnTable()
     {
-        if (tableSpawnPoints == null || tableSpawnPoints.Length == 0)
-        {
+        if (rageObjectPrefabs == null || rageObjectPrefabs.Count == 0){
+            Debug.LogWarning("No rage object prefabs assigned!");
+            return;
+        }
+
+        if (tableSpawnPoints == null || tableSpawnPoints.Length == 0){
             Debug.LogWarning("No table spawn points assigned!");
             return;
         }
 
-        // Find first empty spawn point
-        foreach (Transform point in tableSpawnPoints)
-        {
-            if (point.childCount == 0) // empty spot
-            {
-                int index = Random.Range(0, rageObjectPrefabs.Count);
-                GameObject prefab = rageObjectPrefabs[index];
+        // Pick random spawn point
+        Transform point = tableSpawnPoints[Random.Range(0, tableSpawnPoints.Length)];
+        GameObject prefab = rageObjectPrefabs[Random.Range(0, rageObjectPrefabs.Count)];
 
-                GameObject instance = Instantiate(prefab, point.position, point.rotation, point);
-                MakeGrabbable(instance);
-                spawnedObjects.Add(instance);
-                return; // stop after spawning ONE
-            }
-        }
+        // Spawn slightly above the table
+        Vector3 spawnPos = point.position + Vector3.up * 0.15f;
+        GameObject instance = Instantiate(prefab, spawnPos, point.rotation);
 
-        Debug.Log("All table spots are filled!");
+        // Make grabbable + track
+        MakeGrabbable(instance);
+        spawnedObjects.Add(instance);
     }
+
+
 
     public void SpawnTableWithItems()
     {
@@ -116,7 +117,9 @@ public class RageRoomSpawner : MonoBehaviour
             int index = Random.Range(0, rageObjectPrefabs.Count);
             GameObject prefab = rageObjectPrefabs[index];
 
-            GameObject instance = Instantiate(prefab, tableSpawnPoints[i].position, tableSpawnPoints[i].rotation, tableSpawnPoints[i]);
+            GameObject instance = Instantiate(prefab,
+                tableSpawnPoints[i].position + Vector3.up * 0.15f,
+                tableSpawnPoints[i].rotation);
             MakeGrabbable(instance);
             spawnedObjects.Add(instance);
         }
