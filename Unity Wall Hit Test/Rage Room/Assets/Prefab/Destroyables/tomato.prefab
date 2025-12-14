@@ -96,6 +96,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 3c7a3bd34a0014d1b912b8893a3b687c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2429371655678875186}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: 3c7a3bd34a0014d1b912b8893a3b687c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7766264578416715142}
     - targetCorrespondingSourceObject: {fileID: -5673132630393452290, guid: 3c7a3bd34a0014d1b912b8893a3b687c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4432597702728163124}
@@ -276,6 +279,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7766264578416715142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892545684189898863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c59415d858a09498109d1f4a9ced9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Explode
+  explosion1: {fileID: 5681868667566939127, guid: c773064f8367e2946853475487426618, type: 3}
+  explosion2: {fileID: 0}
+  rb: {fileID: 0}
+  spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
+  expThreshold: 1
 --- !u!1 &2165610562157542698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5673132630393452290, guid: 3c7a3bd34a0014d1b912b8893a3b687c, type: 3}

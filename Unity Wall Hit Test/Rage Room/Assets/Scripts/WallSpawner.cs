@@ -21,17 +21,17 @@ public class WallSpawner : MonoBehaviour
             SpawnWall();
         }
         
-        if (OVRInput.GetDown(showHideButton))
-        {
+        //if (OVRInput.GetDown(showHideButton))
+        //{
             
-            GameObject[] instances = PrefabUtility.FindAllInstancesOfPrefab(wallPrefab);
+        //    GameObject[] instances = PrefabUtility.FindAllInstancesOfPrefab(wallPrefab);
 
-            foreach (GameObject instance in instances)
-            {
+        //    foreach (GameObject instance in instances)
+        //    {
 
-                Destroy(instance, Random.value);
-            }
-        }
+        //        Destroy(instance, Random.value);
+        //    }
+        //}
 
     }
 

@@ -253,7 +253,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
@@ -273,4 +273,4 @@ MonoBehaviour:
   explosion1Prefab: {fileID: 302334558472608193, guid: 34142f68fbc1a0649987f74b35e2c41d, type: 3}
   explosion2Prefab: {fileID: 0}
   sparkPrefab: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
-  expThreshold: 0.1
+  expThreshold: 1
