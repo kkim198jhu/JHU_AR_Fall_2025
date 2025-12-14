@@ -125,6 +125,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral52B58BBADC2D9AC1F176B1A2ADDEC38DCC5514BB
 IL2CPP_EXTERN_C String_t* _stringLiteral5495BF63D980780454242263874339AC4F075EF7;
 IL2CPP_EXTERN_C String_t* _stringLiteral62C9FD5A30EBEC41CC0D0DE6BEA6E2FD863CCB53;
 IL2CPP_EXTERN_C String_t* _stringLiteral69FDFD59C5ABE2FAF3BBCBB11BB793093819D9A8;
+IL2CPP_EXTERN_C String_t* _stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287;
 IL2CPP_EXTERN_C String_t* _stringLiteralD643F5323D47F7DD6BB8CF3276A7C15C16704831;
 IL2CPP_EXTERN_C String_t* _stringLiteralF1CF1DD7DD40FE44AF19F68FDD512B0A81A07F31;
 IL2CPP_EXTERN_C String_t* _stringLiteralF7F4B309093D0233F1E35433D352026DF3B48015;
@@ -168,6 +169,7 @@ struct AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_marshaled_com;
 
 struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031;
 struct ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411;
+struct GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF;
 struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C;
 struct ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918;
 struct TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24;
@@ -894,7 +896,6 @@ struct WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF  : public MonoBehav
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___rightHand;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___playerCamera;
 	float ___spawnDistance;
-	int32_t ___showHideButton;
 	float ___verticalOffset;
 };
 struct List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_StaticFields
@@ -1047,6 +1048,40 @@ struct ContactPointU5BU5D_t3570603E8D0685B71B3D8BA07031674B00C5E411  : public Ru
 	inline void SetAtUnchecked(il2cpp_array_size_t index, ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 value)
 	{
 		m_Items[index] = value;
+	}
+};
+struct GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF  : public RuntimeArray
+{
+	ALIGN_FIELD (8) GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* m_Items[1];
+
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F** GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F** GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* value)
+	{
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
 	}
 };
 struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031  : public RuntimeArray
@@ -1405,8 +1440,10 @@ inline bool Enumerator_MoveNext_mEBF0048F836A945D7BC1A2DDA0BBB90F170CCB5B (Enume
 	return ((  bool (*) (Enumerator_tA522B03FD53C36C1DF3D23C83AA3EB64B6CCD429*, const RuntimeMethod*))Enumerator_MoveNext_mE921CC8F29FBBDE7CC3209A0ED0D921D58D00BCB_gshared)(__this, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C88947C908CDD7447729ECA3307 (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_get_identity_m7E701AE095ED10FD5EA0B50ABCFDE2EEFF2173A5_inline (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* GameObject_FindGameObjectsWithTag_mB8AA805DA664EF0221BB338446014F662771B4E3 (String_t* ___0_tag, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScriptableObject__ctor_mD037FDB0B487295EA47F79A4DB1BF1846C9087FF (ScriptableObject_tB3BFDB921A1B1795B38A5417D3B97A89A140436A* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RuntimeHelpers_InitializeArray_m751372AA3F24FBF6DA9B9D687CBFA2DE436CAB9B (RuntimeArray* ___0_array, RuntimeFieldHandle_t6E4C45B6D2EA12FC99185805A7E77527899B25C5 ___1_fldHandle, const RuntimeMethod* method) ;
@@ -3885,7 +3922,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_Update_m9391B661A30C875E9184
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:19>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:15>
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		bool L_0;
 		L_0 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(1, 2, NULL);
@@ -3895,13 +3932,29 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_Update_m9391B661A30C875E9184
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:21>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:17>
 		WallSpawner_SpawnWall_m74E6568910CA3C88947C908CDD7447729ECA3307(__this, NULL);
 	}
 
 IL_000f:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:36>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:21>
+		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(4, ((int32_t)-2147483648LL), NULL);
+		if (!L_1)
+		{
+			goto IL_0022;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:23>
+		WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B(__this, NULL);
+	}
+
+IL_0022:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:25>
 		return;
 	}
 }
@@ -3913,6 +3966,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C889
 	{
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287);
 		s_Il2CppMethodInitialized = true;
 	}
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_0;
@@ -3921,10 +3975,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C889
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_2;
 	memset((&V_2), 0, sizeof(V_2));
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:40>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:41>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:42>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:43>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:29>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:30>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:31>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:32>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___rightHand;
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
@@ -3946,7 +4000,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C889
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_10;
 		L_10 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_6, L_9, NULL);
 		V_0 = L_10;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:45>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:34>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_11 = __this->___wallPrefab;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12 = V_0;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_13;
@@ -3955,44 +4009,101 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C889
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14;
 		L_14 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(L_11, L_12, L_13, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		V_1 = L_14;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:48>
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_15 = __this->___playerCamera;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:35>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_15 = V_1;
 		NullCheck(L_15);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
-		L_16 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_15, NULL);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = V_1;
-		NullCheck(L_17);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_18;
-		L_18 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_17, NULL);
+		GameObject_set_tag_m0A41528AFD8C83E1CEC5D769921159897CDD2B24(L_15, _stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:38>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_16 = __this->___playerCamera;
+		NullCheck(L_16);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
+		L_17 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_16, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_18 = V_1;
 		NullCheck(L_18);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
-		L_19 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_18, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_19;
+		L_19 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_18, NULL);
+		NullCheck(L_19);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20;
-		L_20 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_16, L_19, NULL);
-		V_2 = L_20;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:49>
+		L_20 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_19, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_21;
+		L_21 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_17, L_20, NULL);
+		V_2 = L_21;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:39>
 		(&V_2)->___y = (0.0f);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:51>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_21 = V_1;
-		NullCheck(L_21);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_22;
-		L_22 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_21, NULL);
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_23 = V_2;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_24;
-		L_24 = Quaternion_LookRotation_mDB2CCA75B8E1AB98104F2A6E1A1EA57D0D1298D7(L_23, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:40>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_22 = V_1;
 		NullCheck(L_22);
-		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_22, L_24, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:52>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_23;
+		L_23 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_22, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_24 = V_2;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_25;
+		L_25 = Quaternion_LookRotation_mDB2CCA75B8E1AB98104F2A6E1A1EA57D0D1298D7(L_24, NULL);
+		NullCheck(L_23);
+		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_23, L_25, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:41>
 		return;
 	}
 }
 // Method Definition Index: 150102
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287);
+		s_Il2CppMethodInitialized = true;
+	}
+	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* V_0 = NULL;
+	int32_t V_1 = 0;
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:45>
+		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_0;
+		L_0 = GameObject_FindGameObjectsWithTag_mB8AA805DA664EF0221BB338446014F662771B4E3(_stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:46>
+		V_0 = L_0;
+		V_1 = 0;
+		goto IL_001b;
+	}
+
+IL_000f:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:46>
+		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_1 = V_0;
+		int32_t L_2 = V_1;
+		NullCheck(L_1);
+		int32_t L_3 = L_2;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4 = (L_1)->GetAt(static_cast<il2cpp_array_size_t>(L_3));
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:48>
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_4, NULL);
+		int32_t L_5 = V_1;
+		V_1 = ((int32_t)il2cpp_codegen_add(L_5, 1));
+	}
+
+IL_001b:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:46>
+		int32_t L_6 = V_1;
+		GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_7 = V_0;
+		NullCheck(L_7);
+		if ((((int32_t)L_6) < ((int32_t)((int32_t)(((RuntimeArray*)L_7)->max_length)))))
+		{
+			goto IL_000f;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:50>
+		return;
+	}
+}
+// Method Definition Index: 150103
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner__ctor_m55F7AC6A411A5D72AAB6309FC08F1FA3F709D06C (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:10>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:9>
 		__this->___spawnDistance = (2.0f);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:14>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:10>
 		__this->___verticalOffset = (-0.25f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -4006,7 +4117,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner__ctor_m55F7AC6A411A5D72AAB63
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150103
+// Method Definition Index: 150104
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4022,7 +4133,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Readme__ctor_m69C325C4C171DCB0312B646A90
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150104
+// Method Definition Index: 150105
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4038,7 +4149,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Section__ctor_m5F732533E4DFC0167D965E5F5
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150105
+// Method Definition Index: 150106
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t8F50E352855B96FFFC1D9CB07EACC90C99D73A3E UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4072,7 +4183,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t8F50E352855B96FFFC1D9CB07EACC
 		return L_6;
 	}
 }
-// Method Definition Index: 150106
+// Method Definition Index: 150107
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_tC95F24D0C6E6B77389433852BB389F39C692926E* __this, const RuntimeMethod* method) 
 {
 	{

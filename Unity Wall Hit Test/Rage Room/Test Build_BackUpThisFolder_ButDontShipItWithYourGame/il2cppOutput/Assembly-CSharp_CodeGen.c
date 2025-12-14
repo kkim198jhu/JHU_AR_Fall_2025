@@ -49,12 +49,13 @@ extern void WallGen_Start_m127E6CCE72D4667512EF10604CF8A0E5904577EF (void);
 extern void WallGen__ctor_m32058D75C8E4E5DA1C23FBEC98F458269C25163D (void);
 extern void WallSpawner_Update_m9391B661A30C875E9184BC06DE596D2C1279911B (void);
 extern void WallSpawner_SpawnWall_m74E6568910CA3C88947C908CDD7447729ECA3307 (void);
+extern void WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B (void);
 extern void WallSpawner__ctor_m55F7AC6A411A5D72AAB6309FC08F1FA3F709D06C (void);
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[47] = 
+static Il2CppMethodPointer s_methodPointers[48] = 
 {
 	Bounceffect_Start_m47EB395941987D6D27F6315E4AFFD4CFAD4CB338,
 	Bounceffect_Update_m59896C129FA79181E678AA964578AF81E2CC5436,
@@ -98,13 +99,14 @@ static Il2CppMethodPointer s_methodPointers[47] =
 	WallGen__ctor_m32058D75C8E4E5DA1C23FBEC98F458269C25163D,
 	WallSpawner_Update_m9391B661A30C875E9184BC06DE596D2C1279911B,
 	WallSpawner_SpawnWall_m74E6568910CA3C88947C908CDD7447729ECA3307,
+	WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B,
 	WallSpawner__ctor_m55F7AC6A411A5D72AAB6309FC08F1FA3F709D06C,
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[47] = 
+static const int32_t s_InvokerIndices[48] = 
 {
 	23914,
 	23914,
@@ -151,6 +153,7 @@ static const int32_t s_InvokerIndices[47] =
 	23914,
 	23914,
 	23914,
+	23914,
 	38911,
 	23914,
 };
@@ -158,7 +161,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	47,
+	48,
 	s_methodPointers,
 	0,
 	NULL,

@@ -11662,7 +11662,6 @@ struct WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF  : public MonoBehav
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___rightHand;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___playerCamera;
 	float ___spawnDistance;
-	int32_t ___showHideButton;
 	float ___verticalOffset;
 };
 struct XRBaseGrabTransformer_t928B47DA234790117C35A173C92AF6A7776F48AE  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -15895,9 +15894,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19343[6] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19345[1] = 
 {
 	static_cast<int32_t>(offsetof(TableSpawnPoints_t50C1A30D21519F2FF94037F9DFA0E9E362E57CCB, ___spawnPoints)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19347[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19347[5] = 
 {
-	static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___wallPrefab)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___rightHand)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___playerCamera)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___spawnDistance)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___showHideButton)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___verticalOffset)),};
+	static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___wallPrefab)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___rightHand)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___playerCamera)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___spawnDistance)),static_cast<int32_t>(offsetof(WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF, ___verticalOffset)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable19348[4] = 
 {
 	static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___heading)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___text)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___linkText)),static_cast<int32_t>(offsetof(Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401, ___url)),};

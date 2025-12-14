@@ -1204,8 +1204,7 @@ MonoBehaviour:
   wallPrefab: {fileID: 1612796144937906265, guid: 3c3ee59773af64c529209b5dbd25281f, type: 3}
   rightHand: {fileID: 492976213}
   playerCamera: {fileID: 492976204}
-  spawnDistance: 2
-  showHideButton: 0
+  spawnDistance: 3
   verticalOffset: -0.25
 --- !u!114 &492976219
 MonoBehaviour:
