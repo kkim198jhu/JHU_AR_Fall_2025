@@ -11,14 +11,20 @@ public class Splash : MonoBehaviour
 
     public float expThreshold = 2f;
     private float vfxLifetime = 2f;
-    private float startTime;
+    private float startTime = -1f;
 
     private Rigidbody rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        startTime = Time.time;
+        
+    }
+
+    private void Update()
+    {
+        if (startTime == -1f)
+            startTime = Time.time;
     }
 
     void OnCollisionEnter(Collision col)
