@@ -29,14 +29,13 @@ public class Splash : MonoBehaviour
         ContactPoint cp = col.GetContact(0);
         Vector3 hitPoint = cp.point;
         Quaternion hitRot = Quaternion.LookRotation(cp.normal);
-        if (Time.time - startTime > 1f)
+        if (Time.time - startTime > 3f)
         {
             if (vel.magnitude > expThreshold)
             {
                 SpawnAndPlayVFX(explosion1Prefab, hitPoint, hitRot);
                 SpawnAndPlayVFX(explosion2Prefab, hitPoint, hitRot);
 
-                Destroy(gameObject, 0.5f);
             }
             else
             {
