@@ -10,36 +10,40 @@ public class Splash : MonoBehaviour
 
 
     public float expThreshold = 2f;
-    private float vfxLifetime = 2f; 
+    private float vfxLifetime = 2f;
+    private float startTime;
 
     private Rigidbody rb;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        startTime = Time.time;
     }
 
     void OnCollisionEnter(Collision col)
     {
-
+        
         Vector3 vel = rb != null ? rb.linearVelocity : Vector3.zero;
 
         ContactPoint cp = col.GetContact(0);
         Vector3 hitPoint = cp.point;
         Quaternion hitRot = Quaternion.LookRotation(cp.normal);
-
-        if (vel.magnitude > expThreshold)
+        if (Time.time - startTime > 1f)
         {
-            SpawnAndPlayVFX(explosion1Prefab, hitPoint, hitRot);
-            SpawnAndPlayVFX(explosion2Prefab, hitPoint, hitRot);
+            if (vel.magnitude > expThreshold)
+            {
+                SpawnAndPlayVFX(explosion1Prefab, hitPoint, hitRot);
+                SpawnAndPlayVFX(explosion2Prefab, hitPoint, hitRot);
 
-            Destroy(gameObject, 0.5f);
-        }
-        else
-        {
-            ParticleSystem ps = Instantiate(sparkPrefab, hitPoint, hitRot);
-            ps.Play();
-            Destroy(ps.gameObject, .1f);
+                Destroy(gameObject, 0.5f);
+            }
+            else
+            {
+                ParticleSystem ps = Instantiate(sparkPrefab, hitPoint, hitRot);
+                ps.Play();
+                Destroy(ps.gameObject, .1f);
+            }
         }
     }
 
