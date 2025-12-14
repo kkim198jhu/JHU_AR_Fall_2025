@@ -24,6 +24,7 @@ extern void Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE (void
 extern void Explode__ctor_m87E0F75692364C98C2BBCF984D64D9E198F126A6 (void);
 extern void RageRoomSpawner_Start_mEA217B23ECC68C1A631F6AE31FBE973EE5971391 (void);
 extern void RageRoomSpawner_Update_m13D1C95B06E5121A63F552174DBE0291BB1D423A (void);
+extern void RageRoomSpawner_SpawnWeapon_mC71308DF77C8929EBCFD14B167198B0003D67D86 (void);
 extern void RageRoomSpawner_SpawnOneItemOnTable_m6EE6157BF84B7DA309A1109BA9557A4D1BAB653F (void);
 extern void RageRoomSpawner_SpawnTableWithItems_m4FBA40996B01E3E5D71404C365B8AF8F3FCD957C (void);
 extern void RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420 (void);
@@ -36,6 +37,7 @@ extern void Sparkexp_Update_m121B5E19220F28480B651B6818AE90402812AEAF (void);
 extern void Sparkexp_OnCollisionEnter_m30F395BFBA703A3D38D22D8E9003F09E2CECA0CA (void);
 extern void Sparkexp__ctor_mD42C8E656766F32D956D4B196D89BB988F50CB96 (void);
 extern void Splash_Awake_mC1EB86F495A6F0CF7A0DB00E9F1FBD2368BA0F05 (void);
+extern void Splash_Update_m02D8F28EA385FA08FE2EF0651F136EB2F3D9E946 (void);
 extern void Splash_OnCollisionEnter_m6023A88995FBF638F753B9E9BA4FA0C6ABBA5EDF (void);
 extern void Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F (void);
 extern void Splash__ctor_m262D49D55CDE7F7271D07250C1D9B0498AE1B767 (void);
@@ -55,7 +57,7 @@ extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[48] = 
+static Il2CppMethodPointer s_methodPointers[50] = 
 {
 	Bounceffect_Start_m47EB395941987D6D27F6315E4AFFD4CFAD4CB338,
 	Bounceffect_Update_m59896C129FA79181E678AA964578AF81E2CC5436,
@@ -74,6 +76,7 @@ static Il2CppMethodPointer s_methodPointers[48] =
 	Explode__ctor_m87E0F75692364C98C2BBCF984D64D9E198F126A6,
 	RageRoomSpawner_Start_mEA217B23ECC68C1A631F6AE31FBE973EE5971391,
 	RageRoomSpawner_Update_m13D1C95B06E5121A63F552174DBE0291BB1D423A,
+	RageRoomSpawner_SpawnWeapon_mC71308DF77C8929EBCFD14B167198B0003D67D86,
 	RageRoomSpawner_SpawnOneItemOnTable_m6EE6157BF84B7DA309A1109BA9557A4D1BAB653F,
 	RageRoomSpawner_SpawnTableWithItems_m4FBA40996B01E3E5D71404C365B8AF8F3FCD957C,
 	RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420,
@@ -86,6 +89,7 @@ static Il2CppMethodPointer s_methodPointers[48] =
 	Sparkexp_OnCollisionEnter_m30F395BFBA703A3D38D22D8E9003F09E2CECA0CA,
 	Sparkexp__ctor_mD42C8E656766F32D956D4B196D89BB988F50CB96,
 	Splash_Awake_mC1EB86F495A6F0CF7A0DB00E9F1FBD2368BA0F05,
+	Splash_Update_m02D8F28EA385FA08FE2EF0651F136EB2F3D9E946,
 	Splash_OnCollisionEnter_m6023A88995FBF638F753B9E9BA4FA0C6ABBA5EDF,
 	Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F,
 	Splash__ctor_m262D49D55CDE7F7271D07250C1D9B0498AE1B767,
@@ -106,7 +110,7 @@ static Il2CppMethodPointer s_methodPointers[48] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[48] = 
+static const int32_t s_InvokerIndices[50] = 
 {
 	23914,
 	23914,
@@ -127,14 +131,16 @@ static const int32_t s_InvokerIndices[48] =
 	23914,
 	23914,
 	23914,
-	18363,
-	23914,
-	23914,
-	23914,
-	23914,
-	23914,
 	23914,
 	18363,
+	23914,
+	23914,
+	23914,
+	23914,
+	23914,
+	23914,
+	18363,
+	23914,
 	23914,
 	23914,
 	18363,
@@ -161,7 +167,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	48,
+	50,
 	s_methodPointers,
 	0,
 	NULL,

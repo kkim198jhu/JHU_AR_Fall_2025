@@ -5,11 +5,12 @@ public class RageRoomSpawner : MonoBehaviour
 {
     [Header("Rage object prefabs")]
     public List<GameObject> rageObjectPrefabs;
+    public List<GameObject> weaponsPrefabs;
 
     [Header("Spawn origin")]
     public Transform spawnOrigin;        // AR Camera (child of AR Session Origin)
     public float forwardDistance = 1.5f;
-    public float verticalOffset = -0.2f;
+    public float verticalOffset = -0.3f;
 
     [Header("Limits")]
     public int maxSimultaneousObjects = 50;
@@ -17,7 +18,7 @@ public class RageRoomSpawner : MonoBehaviour
     [Header("Table spawning")]
     public GameObject tablePrefab;
     public float tableForwardDistance = 0f;
-    public float tableVerticalOffset = 0f;
+    public float tableVerticalOffset = -5.0f;
     public int itemsOnTable = 6;
 
     [Header("One-item spawning")]
@@ -25,6 +26,7 @@ public class RageRoomSpawner : MonoBehaviour
     public Transform rightHand;           // Optional, for reference
 
     private readonly List<GameObject> spawnedObjects = new List<GameObject>();
+
     private Transform currentTable;
 
     private void Start()
@@ -34,16 +36,46 @@ public class RageRoomSpawner : MonoBehaviour
 
     private void Update()
     {
-        // B button on right Meta Quest controller = Button.Two
-        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
+        // X button on right Meta Quest controller = Button.Three
+        if (OVRInput.GetDown(OVRInput.Button.Three))
         {
             SpawnOneItemOnTable();
         }
+
+        // Y button on right Meta Quest controller = Button.Four
+        if (OVRInput.GetDown(OVRInput.Button.Four))
+        {
+            SpawnWeapon();
+        }
     }
 
-    // -----------------------------------------
-    // Spawn ONE item on the table
-    // -----------------------------------------
+    private void SpawnWeapon(){
+        if (weaponsPrefabs == null || weaponsPrefabs.Count == 0)
+        {
+            Debug.LogWarning("No weapon prefabs assigned!");
+            return;
+        }
+
+        // Pick random weapon
+        GameObject weaponPrefab = weaponsPrefabs[Random.Range(0, weaponsPrefabs.Count)];
+
+        // Choose spawn origin (right hand preferred)
+        Transform origin = rightHand != null ? rightHand : spawnOrigin;
+
+        Vector3 spawnPos =
+            origin.position +
+            origin.forward * 0.3f +
+            Vector3.up * 0.15f;
+
+        Quaternion spawnRot = origin.rotation;
+
+        GameObject instance = Instantiate(weaponPrefab, spawnPos, spawnRot);
+
+        MakeGrabbable(instance);
+        spawnedObjects.Add(instance);
+    }
+
+
     private void SpawnOneItemOnTable()
     {
         if (rageObjectPrefabs == null || rageObjectPrefabs.Count == 0){
@@ -61,7 +93,7 @@ public class RageRoomSpawner : MonoBehaviour
         GameObject prefab = rageObjectPrefabs[Random.Range(0, rageObjectPrefabs.Count)];
 
         // Spawn slightly above the table
-        Vector3 spawnPos = point.position + Vector3.up * 0.15f;
+        Vector3 spawnPos = point.position + Vector3.up * 0.5f;
         GameObject instance = Instantiate(prefab, spawnPos, point.rotation);
 
         // Make grabbable + track
@@ -118,7 +150,7 @@ public class RageRoomSpawner : MonoBehaviour
             GameObject prefab = rageObjectPrefabs[index];
 
             GameObject instance = Instantiate(prefab,
-                tableSpawnPoints[i].position + Vector3.up * 0.15f,
+                tableSpawnPoints[i].position + Vector3.up * 0.5f,
                 tableSpawnPoints[i].rotation);
             MakeGrabbable(instance);
             spawnedObjects.Add(instance);
