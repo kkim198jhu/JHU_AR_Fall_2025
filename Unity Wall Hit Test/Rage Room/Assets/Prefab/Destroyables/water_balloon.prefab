@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8681642452852674115, guid: a7adab65582fc48218beb6c265a7e41b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8897093224900880590, guid: a7adab65582fc48218beb6c265a7e41b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -200,7 +204,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

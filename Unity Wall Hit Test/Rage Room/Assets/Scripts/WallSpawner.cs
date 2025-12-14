@@ -18,7 +18,7 @@ public class WallSpawner : MonoBehaviour
         }
 
         // X button (Left controller) = Destroy all walls
-        if (OVRInput.GetDown(OVRInput.Button.Three))
+        if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
             DestroyAllWalls();
         }

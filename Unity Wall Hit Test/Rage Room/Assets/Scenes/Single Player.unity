@@ -3367,16 +3367,20 @@ MonoBehaviour:
   - {fileID: 7046536934783032401, guid: 79e73cbbd2c3a44aa8bb7338780fd8f4, type: 3}
   - {fileID: 8230057365614124042, guid: f85f29dab16f846d49e338a3b7c1022b, type: 3}
   - {fileID: 3698937120493277666, guid: 8812e1d80944949c7ad4f07c40c8dcbf, type: 3}
+  weaponsPrefabs:
+  - {fileID: 1386448085096834661, guid: 3e4f2f32b2eec4643b0d493f52d5c182, type: 3}
+  - {fileID: 6533315583889525754, guid: 3717e07b8370f4c3ca58055d5fae663c, type: 3}
+  - {fileID: 4872602017566107120, guid: f8f06bfc10e7f4691925f76c819d3243, type: 3}
   spawnOrigin: {fileID: 492976204}
   forwardDistance: 0
-  verticalOffset: -1
+  verticalOffset: -3
   maxSimultaneousObjects: 50
   tablePrefab: {fileID: 9076878517542965716, guid: 2c546ec84239d47509ad81d1216ee662, type: 3}
   tableForwardDistance: 2
-  tableVerticalOffset: -2.5
+  tableVerticalOffset: 0
   itemsOnTable: 4
   tableSpawnPoints: []
-  rightHand: {fileID: 0}
+  rightHand: {fileID: 492976213}
 --- !u!4 &1760120976
 Transform:
   m_ObjectHideFlags: 0

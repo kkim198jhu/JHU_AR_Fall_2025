@@ -123,6 +123,7 @@ IL2CPP_EXTERN_C String_t* _stringLiteral444583EE106C089F63F9063C920D60F11AD3A34A
 IL2CPP_EXTERN_C String_t* _stringLiteral484CF4F11E3C1B1BD16B69A6E1A8F720E608CB53;
 IL2CPP_EXTERN_C String_t* _stringLiteral52B58BBADC2D9AC1F176B1A2ADDEC38DCC5514BB;
 IL2CPP_EXTERN_C String_t* _stringLiteral5495BF63D980780454242263874339AC4F075EF7;
+IL2CPP_EXTERN_C String_t* _stringLiteral5DDA20FC182CE86B4A019BA53FB652D1D3813098;
 IL2CPP_EXTERN_C String_t* _stringLiteral62C9FD5A30EBEC41CC0D0DE6BEA6E2FD863CCB53;
 IL2CPP_EXTERN_C String_t* _stringLiteral69FDFD59C5ABE2FAF3BBCBB11BB793093819D9A8;
 IL2CPP_EXTERN_C String_t* _stringLiteral7649AEE062EE200D5810926162F39A75BCEE5287;
@@ -791,6 +792,7 @@ struct Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F  : public MonoBehaviour
 	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___rb;
 	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___spark;
 	float ___expThreshold;
+	float ___startTime;
 };
 struct MRUK_tD09615374DB9F7EFEEE6BA25E2FA70F8B6E11BA4  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -849,6 +851,7 @@ struct MRUKRoom_t2D8F925984BB79DB510F6BC67BEB9921E66410F3  : public MonoBehaviou
 struct RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___rageObjectPrefabs;
+	List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___weaponsPrefabs;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___spawnOrigin;
 	float ___forwardDistance;
 	float ___verticalOffset;
@@ -878,6 +881,7 @@ struct Splash_t3E787034262677ADC05E4C3341E814040AE67D3B  : public MonoBehaviour_
 	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___sparkPrefab;
 	float ___expThreshold;
 	float ___vfxLifetime;
+	float ___startTime;
 	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___rb;
 };
 struct StartMenuManager_t18BE2A0A6C72AE4B02C244F3586925068EE6D44F  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
@@ -1296,6 +1300,7 @@ inline Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* Component_GetCompone
 {
 	return ((  Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B (const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C (Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 Collision_GetContact_m34D66AD97A8DB36AFE0711276C990742B6FE4BCD (Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ContactPoint_get_point_mCCDFDACC5D8DB469898060A56A3CC45132911208 (ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9* __this, const RuntimeMethod* method) ;
@@ -1318,6 +1323,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float MinMaxCurve_get_constant_m4F2B7693C00CC
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnTableWithItems_m4FBA40996B01E3E5D71404C365B8AF8F3FCD957C (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7 (int32_t ___0_virtualMask, int32_t ___1_controllerMask, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnOneItemOnTable_m6EE6157BF84B7DA309A1109BA9557A4D1BAB653F (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnWeapon_mC71308DF77C8929EBCFD14B167198B0003D67D86 (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) ;
 inline int32_t List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_inline (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* __this, const RuntimeMethod* method)
 {
 	return ((  int32_t (*) (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*, const RuntimeMethod*))List_1_get_Count_m4407E4C389F22B8CEC282C15D56516658746C383_gshared_inline)(__this, method);
@@ -1472,7 +1478,7 @@ inline void List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8 (List
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150060
+// Method Definition Index: 150042
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect_Start_m47EB395941987D6D27F6315E4AFFD4CFAD4CB338 (Bounceffect_t2970AC874365F3A25F4EDF03358A030C0B7C8A0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1480,7 +1486,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect_Start_m47EB395941987D6D27F63
 		return;
 	}
 }
-// Method Definition Index: 150061
+// Method Definition Index: 150043
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect_Update_m59896C129FA79181E678AA964578AF81E2CC5436 (Bounceffect_t2970AC874365F3A25F4EDF03358A030C0B7C8A0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1488,7 +1494,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect_Update_m59896C129FA79181E678
 		return;
 	}
 }
-// Method Definition Index: 150062
+// Method Definition Index: 150044
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect__ctor_m20B9DCFF3EFE07A7FAF7D0C112BC534543CB0CF0 (Bounceffect_t2970AC874365F3A25F4EDF03358A030C0B7C8A0F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1504,7 +1510,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Bounceffect__ctor_m20B9DCFF3EFE07A7FAF7D
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150063
+// Method Definition Index: 150045
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_Start_mC67BBE2D5A7F4A7B2C2B5148F68E0E0306847303 (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1543,7 +1549,7 @@ IL_0023:
 		return;
 	}
 }
-// Method Definition Index: 150064
+// Method Definition Index: 150046
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_Update_m486C4E6149AFC6B79FCD7BFB64D3B9C9484DF709 (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1701,7 +1707,7 @@ IL_0094:
 		return;
 	}
 }
-// Method Definition Index: 150065
+// Method Definition Index: 150047
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_TryBeginGrab_m0B6E5504B4A52F10178E0E4EFAAB3B278B4D1E7D (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, Touch_t03E51455ED508492B3F278903A0114FA0E87B417 ___0_touch, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1766,7 +1772,7 @@ IL_0051:
 		return;
 	}
 }
-// Method Definition Index: 150066
+// Method Definition Index: 150048
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_BeginGrab_m7E1FBEFBB1AAA5F335C921939479A96B6F32E57F (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1858,7 +1864,7 @@ IL_0052:
 		return;
 	}
 }
-// Method Definition Index: 150067
+// Method Definition Index: 150049
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_UpdateHeldObject_m578F182664E393539017C5B683753D92B712DC15 (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1964,7 +1970,7 @@ IL_00b1:
 		return;
 	}
 }
-// Method Definition Index: 150068
+// Method Definition Index: 150050
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab_ReleaseGrab_m1AC878907186421CE3D8925D7C36E56013448075 (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2114,7 +2120,7 @@ IL_008f:
 		return;
 	}
 }
-// Method Definition Index: 150069
+// Method Definition Index: 150051
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab__ctor_m78A4F835B819CA9CB1D5C07BF9F51359AAA98750 (ARTouchGrab_tFC9222A493E066A6B254F6D1F54CA9642DD6A869* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2154,7 +2160,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ARTouchGrab__ctor_m78A4F835B819CA9CB1D5C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150070
+// Method Definition Index: 150052
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_Start_m486DDBBD18B9407BDAD61D8B4064275AE9AF7F22 (Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2164,24 +2170,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_Start_m486DDBBD18B9407BDAD61D8B4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:18>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:19>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_0;
 		L_0 = Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8(__this, Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8_RuntimeMethod_var);
 		__this->___rb = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___rb), (void*)L_0);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:19>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:20>
 		return;
 	}
 }
-// Method Definition Index: 150071
+// Method Definition Index: 150053
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_Update_m9F8150D4957F1B979946E581C025B85B692299A3 (Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F* __this, const RuntimeMethod* method) 
 {
 	{
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:25>
+		float L_0 = __this->___startTime;
+		if ((!(((float)L_0) == ((float)(-1.0f)))))
+		{
+			goto IL_0018;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:26>
+		float L_1;
+		L_1 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		__this->___startTime = L_1;
+	}
+
+IL_0018:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:27>
 		return;
 	}
 }
-// Method Definition Index: 150072
+// Method Definition Index: 150054
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_OnCollisionEnter_m1C3277FDC7C28E9593096729FFF647316B1D5BEB (Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_col, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2199,13 +2221,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_OnCollisionEnter_m1C3277FDC7C28E
 	ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 V_3;
 	memset((&V_3), 0, sizeof(V_3));
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:29>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:31>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_0 = __this->___rb;
 		NullCheck(L_0);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
 		L_1 = Rigidbody_get_linearVelocity_m367F5415641E5FB968440A91BAE2FCB8CAEA2C8C(L_0, NULL);
 		V_0 = L_1;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:30>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:32>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_2 = ___0_col;
 		NullCheck(L_2);
 		ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 L_3;
@@ -2214,7 +2236,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_OnCollisionEnter_m1C3277FDC7C28E
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_4;
 		L_4 = ContactPoint_get_point_mCCDFDACC5D8DB469898060A56A3CC45132911208((&V_3), NULL);
 		V_1 = L_4;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:31>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:33>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_5 = ___0_col;
 		NullCheck(L_5);
 		ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 L_6;
@@ -2225,46 +2247,60 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_OnCollisionEnter_m1C3277FDC7C28E
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_8;
 		L_8 = Quaternion_LookRotation_mDB2CCA75B8E1AB98104F2A6E1A1EA57D0D1298D7(L_7, NULL);
 		V_2 = L_8;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:33>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:34>
 		float L_9;
-		L_9 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_0), NULL);
-		float L_10 = __this->___expThreshold;
-		if ((!(((float)L_9) > ((float)L_10))))
+		L_9 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		float L_10 = __this->___startTime;
+		if ((!(((float)((float)il2cpp_codegen_subtract(L_9, L_10))) > ((float)(2.0f)))))
 		{
-			goto IL_006d;
+			goto IL_008e;
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:35>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_11 = __this->___explosion1;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_12 = V_1;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_13 = V_2;
-		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_11, L_12, L_13, NULL);
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:36>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_14 = __this->___explosion2;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15 = V_1;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_16 = V_2;
-		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_14, L_15, L_16, NULL);
+		float L_11;
+		L_11 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_0), NULL);
+		float L_12 = __this->___expThreshold;
+		if ((!(((float)L_11) > ((float)L_12))))
+		{
+			goto IL_0080;
+		}
+	}
+	{
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:38>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17;
-		L_17 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_13 = __this->___explosion1;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_14 = V_1;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_15 = V_2;
+		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_13, L_14, L_15, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:39>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_16 = __this->___explosion2;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17 = V_1;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_18 = V_2;
+		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_16, L_17, L_18, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:41>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_19;
+		L_19 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_17, (0.5f), NULL);
+		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_19, (0.100000001f), NULL);
 		return;
 	}
 
-IL_006d:
+IL_0080:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:42>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_18 = __this->___spark;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19 = V_1;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_20 = V_2;
-		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_18, L_19, L_20, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:47>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:45>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_20 = __this->___spark;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_21 = V_1;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_22 = V_2;
+		Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE(__this, L_20, L_21, L_22, NULL);
+	}
+
+IL_008e:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:50>
 		return;
 	}
 }
-// Method Definition Index: 150073
+// Method Definition Index: 150055
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_SpawnAndPlay_mACB657393DCF28CC370997992737D53D2E381ACE (Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F* __this, ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___0_prefab, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_pos, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___2_rot, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2281,7 +2317,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_SpawnAndPlay_mACB657393DCF28CC37
 	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_3;
 	memset((&V_3), 0, sizeof(V_3));
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:51>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:54>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_0 = ___0_prefab;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -2292,13 +2328,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode_SpawnAndPlay_mACB657393DCF28CC37
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:51>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:54>
 		return;
 	}
 
 IL_000a:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:53>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:56>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_2 = ___0_prefab;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3 = ___1_pos;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_4 = ___2_rot;
@@ -2306,11 +2342,11 @@ IL_000a:
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_5;
 		L_5 = Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2(L_2, L_3, L_4, Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2_RuntimeMethod_var);
 		V_0 = L_5;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:54>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:57>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_6 = V_0;
 		NullCheck(L_6);
 		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_6, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:56>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:59>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_7 = V_0;
 		NullCheck(L_7);
 		MainModule_tC7ECD8330C14B0808478A748048988A6085CE2A9 L_8;
@@ -2319,7 +2355,7 @@ IL_000a:
 		float L_9;
 		L_9 = MainModule_get_duration_mDCB80E6BD3B6B2DFB92E41FBCCA154D7E7150EB1((&V_2), NULL);
 		V_1 = L_9;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:57>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:60>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_10 = V_0;
 		NullCheck(L_10);
 		MainModule_tC7ECD8330C14B0808478A748048988A6085CE2A9 L_11;
@@ -2336,7 +2372,7 @@ IL_000a:
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:58>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:61>
 		float L_14 = V_1;
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_15 = V_0;
 		NullCheck(L_15);
@@ -2354,7 +2390,7 @@ IL_000a:
 
 IL_005c:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:60>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:63>
 		float L_19 = V_1;
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_20 = V_0;
 		NullCheck(L_20);
@@ -2371,24 +2407,25 @@ IL_005c:
 
 IL_0075:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:62>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:65>
 		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_24 = V_0;
 		NullCheck(L_24);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_25;
 		L_25 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_24, NULL);
-		float L_26 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_25, L_26, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:69>
+		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_25, (0.100000001f), NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:72>
 		return;
 	}
 }
-// Method Definition Index: 150074
+// Method Definition Index: 150056
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode__ctor_m87E0F75692364C98C2BBCF984D64D9E198F126A6 (Explode_t4635F1D29094AC378A54EE157376D11F587B5E6F* __this, const RuntimeMethod* method) 
 {
 	{
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:11>
 		__this->___expThreshold = (2.0f);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/Explode.cs:12>
+		__this->___startTime = (-1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
@@ -2401,17 +2438,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Explode__ctor_m87E0F75692364C98C2BBCF984
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150075
+// Method Definition Index: 150057
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_Start_mEA217B23ECC68C1A631F6AE31FBE973EE5971391 (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:32>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:34>
 		RageRoomSpawner_SpawnTableWithItems_m4FBA40996B01E3E5D71404C365B8AF8F3FCD957C(__this, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:33>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:35>
 		return;
 	}
 }
-// Method Definition Index: 150076
+// Method Definition Index: 150058
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_Update_m13D1C95B06E5121A63F552174DBE0291BB1D423A (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2421,27 +2458,186 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_Update_m13D1C95B06E5121A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:38>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:40>
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		bool L_0;
-		L_0 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(2, 2, NULL);
+		L_0 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(4, ((int32_t)-2147483648LL), NULL);
 		if (!L_0)
 		{
-			goto IL_000f;
+			goto IL_0013;
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:40>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:42>
 		RageRoomSpawner_SpawnOneItemOnTable_m6EE6157BF84B7DA309A1109BA9557A4D1BAB653F(__this, NULL);
 	}
 
-IL_000f:
+IL_0013:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:42>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:46>
+		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
+		bool L_1;
+		L_1 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(8, ((int32_t)-2147483648LL), NULL);
+		if (!L_1)
+		{
+			goto IL_0026;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:48>
+		RageRoomSpawner_SpawnWeapon_mC71308DF77C8929EBCFD14B167198B0003D67D86(__this, NULL);
+	}
+
+IL_0026:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:50>
 		return;
 	}
 }
-// Method Definition Index: 150077
+// Method Definition Index: 150059
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnWeapon_mC71308DF77C8929EBCFD14B167198B0003D67D86 (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5DDA20FC182CE86B4A019BA53FB652D1D3813098);
+		s_Il2CppMethodInitialized = true;
+	}
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* V_0 = NULL;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 V_1;
+	memset((&V_1), 0, sizeof(V_1));
+	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 V_2;
+	memset((&V_2), 0, sizeof(V_2));
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_3 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B5_0 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B4_0 = NULL;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* G_B6_0 = NULL;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* G_B6_1 = NULL;
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:53>
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_0 = __this->___weaponsPrefabs;
+		if (!L_0)
+		{
+			goto IL_0015;
+		}
+	}
+	{
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_1 = __this->___weaponsPrefabs;
+		NullCheck(L_1);
+		int32_t L_2;
+		L_2 = List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_inline(L_1, List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_RuntimeMethod_var);
+		if (L_2)
+		{
+			goto IL_0020;
+		}
+	}
+
+IL_0015:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:55>
+		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
+		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral5DDA20FC182CE86B4A019BA53FB652D1D3813098, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:56>
+		return;
+	}
+
+IL_0020:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:60>
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_3 = __this->___weaponsPrefabs;
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_4 = __this->___weaponsPrefabs;
+		NullCheck(L_4);
+		int32_t L_5;
+		L_5 = List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_inline(L_4, List_1_get_Count_m4C37ED2D928D63B80F55AF434730C2D64EEB9F22_RuntimeMethod_var);
+		int32_t L_6;
+		L_6 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, L_5, NULL);
+		NullCheck(L_3);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7;
+		L_7 = List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979(L_3, L_6, List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979_RuntimeMethod_var);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:63>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_8 = __this->___rightHand;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_9;
+		L_9 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_8, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (L_9)
+		{
+			G_B5_0 = L_7;
+			goto IL_0052;
+		}
+		G_B4_0 = L_7;
+	}
+	{
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_10 = __this->___spawnOrigin;
+		G_B6_0 = L_10;
+		G_B6_1 = G_B4_0;
+		goto IL_0058;
+	}
+
+IL_0052:
+	{
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_11 = __this->___rightHand;
+		G_B6_0 = L_11;
+		G_B6_1 = G_B5_0;
+	}
+
+IL_0058:
+	{
+		V_0 = G_B6_0;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:65>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:66>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:67>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:68>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_12 = V_0;
+		NullCheck(L_12);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13;
+		L_13 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_12, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_14 = V_0;
+		NullCheck(L_14);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15;
+		L_15 = Transform_get_forward_mFCFACF7165FDAB21E80E384C494DF278386CEE2F(L_14, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
+		L_16 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_15, (0.300000012f), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
+		L_17 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_13, L_16, NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18;
+		L_18 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
+		L_19 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_18, (0.150000006f), NULL);
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20;
+		L_20 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_17, L_19, NULL);
+		V_1 = L_20;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:70>
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_21 = V_0;
+		NullCheck(L_21);
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_22;
+		L_22 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_21, NULL);
+		V_2 = L_22;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:72>
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_23 = V_1;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_24 = V_2;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_25;
+		L_25 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(G_B6_1, L_23, L_24, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
+		V_3 = L_25;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:74>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_26 = V_3;
+		RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420(__this, L_26, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:75>
+		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_27 = __this->___spawnedObjects;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_28 = V_3;
+		NullCheck(L_27);
+		List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_inline(L_27, L_28, List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_RuntimeMethod_var);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:76>
+		return;
+	}
+}
+// Method Definition Index: 150060
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnOneItemOnTable_m6EE6157BF84B7DA309A1109BA9557A4D1BAB653F (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2462,7 +2658,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnOneItemOnTable_m6EE
 	memset((&V_1), 0, sizeof(V_1));
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_2 = NULL;
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:49>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:81>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_0 = __this->___rageObjectPrefabs;
 		if (!L_0)
 		{
@@ -2482,16 +2678,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnOneItemOnTable_m6EE
 
 IL_0015:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:50>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:82>
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral5495BF63D980780454242263874339AC4F075EF7, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:51>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:83>
 		return;
 	}
 
 IL_0020:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:54>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:86>
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_3 = __this->___tableSpawnPoints;
 		if (!L_3)
 		{
@@ -2509,16 +2705,16 @@ IL_0020:
 
 IL_0031:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:55>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:87>
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral484CF4F11E3C1B1BD16B69A6E1A8F720E608CB53, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:56>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:88>
 		return;
 	}
 
 IL_003c:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:60>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:92>
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_5 = __this->___tableSpawnPoints;
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_6 = __this->___tableSpawnPoints;
 		NullCheck(L_6);
@@ -2528,7 +2724,7 @@ IL_003c:
 		int32_t L_8 = L_7;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_9 = (L_5)->GetAt(static_cast<il2cpp_array_size_t>(L_8));
 		V_0 = L_9;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:61>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:93>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_10 = __this->___rageObjectPrefabs;
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_11 = __this->___rageObjectPrefabs;
 		NullCheck(L_11);
@@ -2539,7 +2735,7 @@ IL_003c:
 		NullCheck(L_10);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_14;
 		L_14 = List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979(L_10, L_13, List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:64>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:96>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_15 = V_0;
 		NullCheck(L_15);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16;
@@ -2547,11 +2743,11 @@ IL_003c:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_17;
 		L_17 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18;
-		L_18 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_17, (0.150000006f), NULL);
+		L_18 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_17, (0.5f), NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_19;
 		L_19 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_16, L_18, NULL);
 		V_1 = L_19;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:65>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:97>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20 = V_1;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_21 = V_0;
 		NullCheck(L_21);
@@ -2561,19 +2757,19 @@ IL_003c:
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_23;
 		L_23 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(L_14, L_20, L_22, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		V_2 = L_23;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:68>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:100>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_24 = V_2;
 		RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420(__this, L_24, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:69>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:101>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_25 = __this->___spawnedObjects;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_26 = V_2;
 		NullCheck(L_25);
 		List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_inline(L_25, L_26, List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:70>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:102>
 		return;
 	}
 }
-// Method Definition Index: 150078
+// Method Definition Index: 150061
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnTableWithItems_m4FBA40996B01E3E5D71404C365B8AF8F3FCD957C (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2602,7 +2798,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnTableWithItems_m4FB
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_7 = NULL;
 	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* G_B8_0 = NULL;
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:76>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:108>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = __this->___tablePrefab;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -2613,16 +2809,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_SpawnTableWithItems_m4FB
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:78>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:110>
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteral52B58BBADC2D9AC1F176B1A2ADDEC38DCC5514BB, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:79>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:111>
 		return;
 	}
 
 IL_0019:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:82>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:114>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_2 = __this->___rageObjectPrefabs;
 		if (!L_2)
 		{
@@ -2642,16 +2838,16 @@ IL_0019:
 
 IL_002e:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:84>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:116>
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogWarning_m33EF1B897E0C7C6FF538989610BFAFFEF4628CA9(_stringLiteralF1CF1DD7DD40FE44AF19F68FDD512B0A81A07F31, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:85>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:117>
 		return;
 	}
 
 IL_0039:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:88>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:120>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_5 = __this->___spawnOrigin;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_6;
@@ -2680,10 +2876,10 @@ IL_0053:
 IL_0059:
 	{
 		V_0 = G_B8_0;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:90>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:91>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:92>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:93>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:122>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:123>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:124>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:125>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_10 = V_0;
 		NullCheck(L_10);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_11;
@@ -2705,7 +2901,7 @@ IL_0059:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20;
 		L_20 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_16, L_19, NULL);
 		V_1 = L_20;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:95>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:127>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_21 = V_0;
 		NullCheck(L_21);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22;
@@ -2723,7 +2919,7 @@ IL_0059:
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_28;
 		L_28 = Quaternion_op_Multiply_mCB375FCCC12A2EC8F9EB824A1BFB4453B58C2012_inline(L_24, L_27, NULL);
 		V_2 = L_28;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:97>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:129>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_29 = __this->___currentTable;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_30;
@@ -2734,21 +2930,21 @@ IL_0059:
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:99>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:131>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_31 = __this->___currentTable;
 		NullCheck(L_31);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_32;
 		L_32 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_31, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		Object_Destroy_mE97D0A766419A81296E8D4E5C23D01D3FE91ACBB(L_32, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:100>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:132>
 		__this->___currentTable = (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentTable), (void*)(Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1*)NULL);
 	}
 
 IL_00e1:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:103>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:135>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_33 = __this->___tablePrefab;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_34 = V_1;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_35 = V_2;
@@ -2756,14 +2952,14 @@ IL_00e1:
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_36;
 		L_36 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(L_33, L_34, L_35, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		V_3 = L_36;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:104>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:136>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_37 = V_3;
 		NullCheck(L_37);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_38;
 		L_38 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_37, NULL);
 		__this->___currentTable = L_38;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___currentTable), (void*)L_38);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:107>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:139>
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_39 = __this->___tableSpawnPoints;
 		if (!L_39)
 		{
@@ -2781,7 +2977,7 @@ IL_00e1:
 
 IL_010c:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:109>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:141>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_41 = V_3;
 		NullCheck(L_41);
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_42;
@@ -2792,21 +2988,21 @@ IL_010c:
 
 IL_0118:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:114>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:146>
 		int32_t L_43 = __this->___itemsOnTable;
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_44 = __this->___tableSpawnPoints;
 		NullCheck(L_44);
 		int32_t L_45;
 		L_45 = Mathf_Min_m888083F74FF5655778F0403BB5E9608BEFDEA8CB_inline(L_43, ((int32_t)(((RuntimeArray*)L_44)->max_length)), NULL);
 		V_4 = L_45;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:115>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:147>
 		V_5 = 0;
 		goto IL_01a4;
 	}
 
 IL_0132:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:117>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:149>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_46 = __this->___rageObjectPrefabs;
 		NullCheck(L_46);
 		int32_t L_47;
@@ -2814,15 +3010,15 @@ IL_0132:
 		int32_t L_48;
 		L_48 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, L_47, NULL);
 		V_6 = L_48;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:118>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:150>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_49 = __this->___rageObjectPrefabs;
 		int32_t L_50 = V_6;
 		NullCheck(L_49);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_51;
 		L_51 = List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979(L_49, L_50, List_1_get_Item_mE8DBE527F24D9CFED839C34216C475B716169979_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:120>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:121>
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:122>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:152>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:153>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:154>
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_52 = __this->___tableSpawnPoints;
 		int32_t L_53 = V_5;
 		NullCheck(L_52);
@@ -2834,7 +3030,7 @@ IL_0132:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_57;
 		L_57 = Vector3_get_up_m128AF3FDC820BF59D5DE86D973E7DE3F20C3AEBA_inline(NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_58;
-		L_58 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_57, (0.150000006f), NULL);
+		L_58 = Vector3_op_Multiply_m87BA7C578F96C8E49BB07088DAAC4649F83B0353_inline(L_57, (0.5f), NULL);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_59;
 		L_59 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_56, L_58, NULL);
 		TransformU5BU5D_tBB9C5F5686CAE82E3D97D43DF0F3D68ABF75EC24* L_60 = __this->___tableSpawnPoints;
@@ -2849,22 +3045,22 @@ IL_0132:
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_65;
 		L_65 = Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4(L_51, L_59, L_64, Object_Instantiate_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m831D2F71DF2AA6C93AFDFEFA04CF2CFC5FBBCDB4_RuntimeMethod_var);
 		V_7 = L_65;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:123>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:155>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_66 = V_7;
 		RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420(__this, L_66, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:124>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:156>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_67 = __this->___spawnedObjects;
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_68 = V_7;
 		NullCheck(L_67);
 		List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_inline(L_67, L_68, List_1_Add_m43FBF207375C6E06B8C45ECE614F9B8008FB686E_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:115>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:147>
 		int32_t L_69 = V_5;
 		V_5 = ((int32_t)il2cpp_codegen_add(L_69, 1));
 	}
 
 IL_01a4:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:115>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:147>
 		int32_t L_70 = V_5;
 		int32_t L_71 = V_4;
 		if ((((int32_t)L_70) < ((int32_t)L_71)))
@@ -2873,11 +3069,11 @@ IL_01a4:
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:126>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:158>
 		return;
 	}
 }
-// Method Definition Index: 150079
+// Method Definition Index: 150062
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_MakeGrabbable_m6EE2E8A0CC3FB314FC3B6886CCA4929D60C8A420 (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2892,7 +3088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_MakeGrabbable_m6EE2E8A0C
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:130>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:162>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0 = ___0_obj;
 		NullCheck(L_0);
 		Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* L_1;
@@ -2906,7 +3102,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_MakeGrabbable_m6EE2E8A0C
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:131>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:163>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3 = ___0_obj;
 		NullCheck(L_3);
 		BoxCollider_tFA5D239388334D6DE0B8FFDAD6825C5B03786E23* L_4;
@@ -2915,7 +3111,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner_MakeGrabbable_m6EE2E8A0C
 
 IL_0015:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:133>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:165>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_5 = ___0_obj;
 		NullCheck(L_5);
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_6;
@@ -2929,31 +3125,31 @@ IL_0015:
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:135>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:167>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_8 = ___0_obj;
 		NullCheck(L_8);
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_9;
 		L_9 = GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093(L_8, GameObject_AddComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m03A761629A3F71B0248F1B26EF612F592B757093_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:136>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:168>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_10 = L_9;
 		NullCheck(L_10);
 		Rigidbody_set_useGravity_m1B1B22E093F9DC92D7BEEBBE6B02642B3B6C4389(L_10, (bool)1, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:137>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:169>
 		NullCheck(L_10);
 		Rigidbody_set_isKinematic_m6C3FD3EA358DADA3B191F2449CF1C4F8B22695ED(L_10, (bool)0, NULL);
 	}
 
 IL_0036:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:140>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:172>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_11 = ___0_obj;
 		NullCheck(L_11);
 		GameObject_set_tag_m0A41528AFD8C83E1CEC5D769921159897CDD2B24(L_11, _stringLiteral072F44CBC11828BB915B8AEDE71C3127738E2FAC, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:141>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:173>
 		return;
 	}
 }
-// Method Definition Index: 150080
+// Method Definition Index: 150063
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner__ctor_m64275857F61A73F7B576F89468C4281695350452 (RageRoomSpawner_tC98CEA44E428D976117C13359F61AE3F697CDA61* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2964,15 +3160,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner__ctor_m64275857F61A73F7B
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:11>
-		__this->___forwardDistance = (1.5f);
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:12>
-		__this->___verticalOffset = (-0.200000003f);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:15>
+		__this->___forwardDistance = (1.5f);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:13>
+		__this->___verticalOffset = (-0.300000012f);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:16>
 		__this->___maxSimultaneousObjects = ((int32_t)50);
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:21>
+		__this->___tableVerticalOffset = (-5.0f);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:22>
 		__this->___itemsOnTable = 6;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:27>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/RageRoomSpawner.cs:28>
 		List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* L_0 = (List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B*)il2cpp_codegen_object_new(List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B_il2cpp_TypeInfo_var);
 		List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC(L_0, List_1__ctor_m447372C1EF7141193B93090A77395B786C72C7BC_RuntimeMethod_var);
 		__this->___spawnedObjects = L_0;
@@ -2989,7 +3187,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RageRoomSpawner__ctor_m64275857F61A73F7B
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150081
+// Method Definition Index: 150064
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowHideMesh_Start_m7D3B93008895844393EF9CAC801F9BE1E62E8A63 (ShowHideMesh_tE78F46013A1408C769EE4437DF7FED56B13B7981* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3008,7 +3206,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowHideMesh_Start_m7D3B93008895844393EF
 		return;
 	}
 }
-// Method Definition Index: 150082
+// Method Definition Index: 150065
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowHideMesh_Update_mF341B9C83E04CF1A2DE9502F8A23B244AB25BF9E (ShowHideMesh_tE78F46013A1408C769EE4437DF7FED56B13B7981* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3045,7 +3243,7 @@ IL_002b:
 		return;
 	}
 }
-// Method Definition Index: 150083
+// Method Definition Index: 150066
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowHideMesh__ctor_m08F402102956E287DF3936F3B595F742B1E30235 (ShowHideMesh_tE78F46013A1408C769EE4437DF7FED56B13B7981* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3061,7 +3259,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShowHideMesh__ctor_m08F402102956E287DF39
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150084
+// Method Definition Index: 150067
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_Start_m5F8BEEDA9242E2BE381B870783A92B5241343C81 (Sparkexp_t78E66997623FCB270C45305E79453BD5046F276F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3069,7 +3267,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_Start_m5F8BEEDA9242E2BE381B8707
 		return;
 	}
 }
-// Method Definition Index: 150085
+// Method Definition Index: 150068
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_Update_m121B5E19220F28480B651B6818AE90402812AEAF (Sparkexp_t78E66997623FCB270C45305E79453BD5046F276F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3077,7 +3275,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_Update_m121B5E19220F28480B651B6
 		return;
 	}
 }
-// Method Definition Index: 150086
+// Method Definition Index: 150069
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_OnCollisionEnter_m30F395BFBA703A3D38D22D8E9003F09E2CECA0CA (Sparkexp_t78E66997623FCB270C45305E79453BD5046F276F* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_col, const RuntimeMethod* method) 
 {
 	{
@@ -3103,7 +3301,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp_OnCollisionEnter_m30F395BFBA703
 		return;
 	}
 }
-// Method Definition Index: 150087
+// Method Definition Index: 150070
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp__ctor_mD42C8E656766F32D956D4B196D89BB988F50CB96 (Sparkexp_t78E66997623FCB270C45305E79453BD5046F276F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3119,7 +3317,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Sparkexp__ctor_mD42C8E656766F32D956D4B19
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150088
+// Method Definition Index: 150071
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_Awake_mC1EB86F495A6F0CF7A0DB00E9F1FBD2368BA0F05 (Splash_t3E787034262677ADC05E4C3341E814040AE67D3B* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3129,16 +3327,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_Awake_mC1EB86F495A6F0CF7A0DB00E9F
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:19>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:20>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_0;
 		L_0 = Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8(__this, Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8_RuntimeMethod_var);
 		__this->___rb = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___rb), (void*)L_0);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:20>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:22>
 		return;
 	}
 }
-// Method Definition Index: 150089
+// Method Definition Index: 150072
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_Update_m02D8F28EA385FA08FE2EF0651F136EB2F3D9E946 (Splash_t3E787034262677ADC05E4C3341E814040AE67D3B* __this, const RuntimeMethod* method) 
+{
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:26>
+		float L_0 = __this->___startTime;
+		if ((!(((float)L_0) == ((float)(-1.0f)))))
+		{
+			goto IL_0018;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:27>
+		float L_1;
+		L_1 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		__this->___startTime = L_1;
+	}
+
+IL_0018:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:28>
+		return;
+	}
+}
+// Method Definition Index: 150073
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_OnCollisionEnter_m6023A88995FBF638F753B9E9BA4FA0C6ABBA5EDF (Splash_t3E787034262677ADC05E4C3341E814040AE67D3B* __this, Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* ___0_col, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3159,7 +3381,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_OnCollisionEnter_m6023A88995FBF63
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 G_B3_0;
 	memset((&G_B3_0), 0, sizeof(G_B3_0));
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:25>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:33>
 		Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* L_0 = __this->___rb;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -3188,73 +3410,87 @@ IL_0015:
 IL_0020:
 	{
 		V_0 = G_B3_0;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:27>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:35>
 		Collision_tBCC6AEBD9A63E6DA2E50660DAC03CDCB1FF7A9B0* L_5 = ___0_col;
 		NullCheck(L_5);
 		ContactPoint_t241857959C0D517C21F541BB04B63FA6C1EAB3F9 L_6;
 		L_6 = Collision_GetContact_m34D66AD97A8DB36AFE0711276C990742B6FE4BCD(L_5, 0, NULL);
 		V_1 = L_6;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:28>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:36>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
 		L_7 = ContactPoint_get_point_mCCDFDACC5D8DB469898060A56A3CC45132911208((&V_1), NULL);
 		V_2 = L_7;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:29>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:37>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_8;
 		L_8 = ContactPoint_get_normal_mD7F0567CA2FD68644F7C6FE318E10C4D15F92AD6((&V_1), NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_9;
 		L_9 = Quaternion_LookRotation_mDB2CCA75B8E1AB98104F2A6E1A1EA57D0D1298D7(L_8, NULL);
 		V_3 = L_9;
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:31>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:38>
 		float L_10;
-		L_10 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_0), NULL);
-		float L_11 = __this->___expThreshold;
-		if ((!(((float)L_10) > ((float)L_11))))
+		L_10 = Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B(NULL);
+		float L_11 = __this->___startTime;
+		if ((!(((float)((float)il2cpp_codegen_subtract(L_10, L_11))) > ((float)(2.0f)))))
 		{
-			goto IL_007a;
+			goto IL_00af;
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:33>
-		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_12 = __this->___explosion1Prefab;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_13 = V_2;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_14 = V_3;
-		Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F(__this, L_12, L_13, L_14, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:34>
-		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_15 = __this->___explosion2Prefab;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_16 = V_2;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_17 = V_3;
-		Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F(__this, L_15, L_16, L_17, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:36>
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_18;
-		L_18 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:40>
+		float L_12;
+		L_12 = Vector3_get_magnitude_mF0D6017E90B345F1F52D1CC564C640F1A847AF2D_inline((&V_0), NULL);
+		float L_13 = __this->___expThreshold;
+		if ((!(((float)L_12) > ((float)L_13))))
+		{
+			goto IL_008d;
+		}
+	}
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:42>
+		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_14 = __this->___explosion1Prefab;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_15 = V_2;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_16 = V_3;
+		Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F(__this, L_14, L_15, L_16, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:43>
+		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_17 = __this->___explosion2Prefab;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_18 = V_2;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_19 = V_3;
+		Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F(__this, L_17, L_18, L_19, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:44>
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_20;
+		L_20 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_18, (0.5f), NULL);
+		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_20, (0.5f), NULL);
 		return;
 	}
 
-IL_007a:
+IL_008d:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:40>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_19 = __this->___sparkPrefab;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_20 = V_2;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_21 = V_3;
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:48>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_21 = __this->___sparkPrefab;
+		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_22 = V_2;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_23 = V_3;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_22;
-		L_22 = Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2(L_19, L_20, L_21, Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:41>
-		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_23 = L_22;
-		NullCheck(L_23);
-		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_23, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:42>
-		NullCheck(L_23);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_24;
-		L_24 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_23, NULL);
-		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_24, (0.100000001f), NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:44>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_24;
+		L_24 = Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2(L_21, L_22, L_23, Object_Instantiate_TisParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1_m4D124F2FEF37B79E055EECB4988220B0F2F98CE2_RuntimeMethod_var);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:49>
+		ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* L_25 = L_24;
+		NullCheck(L_25);
+		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_25, NULL);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:50>
+		NullCheck(L_25);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_26;
+		L_26 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_25, NULL);
+		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_26, (0.100000001f), NULL);
+	}
+
+IL_00af:
+	{
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:53>
 		return;
 	}
 }
-// Method Definition Index: 150090
+// Method Definition Index: 150074
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_SpawnAndPlayVFX_m17356A5CD5F132F8720D473737FF75855AF9C86F (Splash_t3E787034262677ADC05E4C3341E814040AE67D3B* __this, VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* ___0_prefab, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_pos, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___2_rot, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3265,7 +3501,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_SpawnAndPlayVFX_m17356A5CD5F132F8
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:48>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:57>
 		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_0 = ___0_prefab;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
@@ -3276,34 +3512,34 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash_SpawnAndPlayVFX_m17356A5CD5F132F8
 		}
 	}
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:48>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:57>
 		return;
 	}
 
 IL_000a:
 	{
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:50>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:59>
 		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_2 = ___0_prefab;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_3 = ___1_pos;
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_4 = ___2_rot;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_5;
 		L_5 = Object_Instantiate_TisVisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0_m9A667F359A03AE84692CEDF6A430E7DF8A8A4AF5(L_2, L_3, L_4, Object_Instantiate_TisVisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0_m9A667F359A03AE84692CEDF6A430E7DF8A8A4AF5_RuntimeMethod_var);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:54>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:63>
 		VisualEffect_t8CF4F0E13AEBF27224BB1323CC103666EDBBCFB0* L_6 = L_5;
 		NullCheck(L_6);
 		VisualEffect_Play_m3A49E82BEE9A6F1ED48156A12908F9D13AADEE1F(L_6, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:56>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:65>
 		NullCheck(L_6);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7;
 		L_7 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_6, NULL);
 		float L_8 = __this->___vfxLifetime;
 		Object_Destroy_m064F2A066491D2DC4FFCFBDBE5FCFFB807A04436(L_7, L_8, NULL);
-		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:57>
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:66>
 		return;
 	}
 }
-// Method Definition Index: 150091
+// Method Definition Index: 150075
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash__ctor_m262D49D55CDE7F7271D07250C1D9B0498AE1B767 (Splash_t3E787034262677ADC05E4C3341E814040AE67D3B* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3311,6 +3547,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash__ctor_m262D49D55CDE7F7271D07250C1
 		__this->___expThreshold = (2.0f);
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:13>
 		__this->___vfxLifetime = (2.0f);
+		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/SplashExp.cs:14>
+		__this->___startTime = (-1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
 	}
@@ -3323,7 +3561,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Splash__ctor_m262D49D55CDE7F7271D07250C1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150092
+// Method Definition Index: 150076
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager_StartSingleplayer_mF7C5EBFD61AA655564B1A26F19830A1383E0BF27 (StartMenuManager_t18BE2A0A6C72AE4B02C244F3586925068EE6D44F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3341,7 +3579,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager_StartSingleplayer_mF7C5
 		return;
 	}
 }
-// Method Definition Index: 150093
+// Method Definition Index: 150077
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager_MultiplayerWIP_m53E0780A8681FFB664D375463C784F321D19F561 (StartMenuManager_t18BE2A0A6C72AE4B02C244F3586925068EE6D44F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3359,7 +3597,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager_MultiplayerWIP_m53E0780
 		return;
 	}
 }
-// Method Definition Index: 150094
+// Method Definition Index: 150078
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager__ctor_m9083E0B61BE62D96D8144EC16D955C9002F3725A (StartMenuManager_t18BE2A0A6C72AE4B02C244F3586925068EE6D44F* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3375,7 +3613,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StartMenuManager__ctor_m9083E0B61BE62D96
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150095
+// Method Definition Index: 150079
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TableSpawnPoints_SpawnItems_m7870506C38B3A88A13C6F7EA3FC81E31DAE32F78 (TableSpawnPoints_t50C1A30D21519F2FF94037F9DFA0E9E362E57CCB* __this, List_1_tB951CE80B58D1BF9650862451D8DAD8C231F207B* ___0_itemPrefabs, int32_t ___1_itemCount, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3647,7 +3885,7 @@ IL_0104:
 		return;
 	}
 }
-// Method Definition Index: 150096
+// Method Definition Index: 150080
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TableSpawnPoints_MakeGrabbable_m825D1BDF973F96B7A3D34A68681E4C70DEE1CE4A (TableSpawnPoints_t50C1A30D21519F2FF94037F9DFA0E9E362E57CCB* __this, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3723,7 +3961,7 @@ IL_0036:
 		return;
 	}
 }
-// Method Definition Index: 150097
+// Method Definition Index: 150081
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TableSpawnPoints__ctor_m2FE068675F92A573F62854C004189F0589C5B996 (TableSpawnPoints_t50C1A30D21519F2FF94037F9DFA0E9E362E57CCB* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3751,7 +3989,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TableSpawnPoints__ctor_m2FE068675F92A573
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150098
+// Method Definition Index: 150082
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallGen_Start_m127E6CCE72D4667512EF10604CF8A0E5904577EF (WallGen_t356555C30C6683D6502F84D1839A895D428F3CAC* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3896,7 +4134,7 @@ IL_0077:
 		return;
 	}
 }
-// Method Definition Index: 150099
+// Method Definition Index: 150083
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallGen__ctor_m32058D75C8E4E5DA1C23FBEC98F458269C25163D (WallGen_t356555C30C6683D6502F84D1839A895D428F3CAC* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3912,7 +4150,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallGen__ctor_m32058D75C8E4E5DA1C23FBEC9
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150100
+// Method Definition Index: 150084
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_Update_m9391B661A30C875E9184BC06DE596D2C1279911B (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3941,10 +4179,10 @@ IL_000f:
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:21>
 		il2cpp_codegen_runtime_class_init_inline(OVRInput_t759D9CC8F14D8539AD78A0375A2306C39D77100A_il2cpp_TypeInfo_var);
 		bool L_1;
-		L_1 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(4, ((int32_t)-2147483648LL), NULL);
+		L_1 = OVRInput_GetDown_mEC4F71AEC93D3AF1A041934CA4C61680C6DB9AC7(2, 2, NULL);
 		if (!L_1)
 		{
-			goto IL_0022;
+			goto IL_001e;
 		}
 	}
 	{
@@ -3952,13 +4190,13 @@ IL_000f:
 		WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B(__this, NULL);
 	}
 
-IL_0022:
+IL_001e:
 	{
 		//<source_info:/Users/kkim23/JHU_AR_Fall_2025/Unity Wall Hit Test/Rage Room/Assets/Scripts/WallSpawner.cs:25>
 		return;
 	}
 }
-// Method Definition Index: 150101
+// Method Definition Index: 150085
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C88947C908CDD7447729ECA3307 (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4044,7 +4282,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_SpawnWall_m74E6568910CA3C889
 		return;
 	}
 }
-// Method Definition Index: 150102
+// Method Definition Index: 150086
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner_DestroyAllWalls_mE87E465465F5CD0065517532CE2077546FB8D85B (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4097,7 +4335,7 @@ IL_001b:
 		return;
 	}
 }
-// Method Definition Index: 150103
+// Method Definition Index: 150087
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner__ctor_m55F7AC6A411A5D72AAB6309FC08F1FA3F709D06C (WallSpawner_t0ECBF97A1EC8D13F7F70B9B93954CD09754FC7CF* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4117,7 +4355,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WallSpawner__ctor_m55F7AC6A411A5D72AAB63
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150104
+// Method Definition Index: 150088
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (Readme_tE17B99201D0F52BD5727638AD3F41072A65B3BBB* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4133,7 +4371,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Readme__ctor_m69C325C4C171DCB0312B646A90
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150105
+// Method Definition Index: 150089
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (Section_t50C894D0A717C2368EBAAE5477D4E8626D0B5401* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4149,7 +4387,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Section__ctor_m5F732533E4DFC0167D965E5F5
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 150106
+// Method Definition Index: 150090
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t8F50E352855B96FFFC1D9CB07EACC90C99D73A3E UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4183,7 +4421,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_t8F50E352855B96FFFC1D9CB07EACC
 		return L_6;
 	}
 }
-// Method Definition Index: 150107
+// Method Definition Index: 150091
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_tC95F24D0C6E6B77389433852BB389F39C692926E* __this, const RuntimeMethod* method) 
 {
 	{
