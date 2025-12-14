@@ -9,10 +9,11 @@ public class Explode : MonoBehaviour
     
     public ParticleSystem spark;
     public float expThreshold = 2f;
+    private float startTime = -1f;
 
 
     //private MeshCollider()
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,7 +22,8 @@ public class Explode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (startTime == -1f)
+            startTime = Time.time;
     }
 
     void OnCollisionEnter(Collision col)
@@ -29,19 +31,20 @@ public class Explode : MonoBehaviour
         Vector3 vel = rb.linearVelocity; // standard Rigidbody velocity
         Vector3 hitPoint = col.GetContact(0).point;
         Quaternion rot = Quaternion.LookRotation(col.GetContact(0).normal);
-
-        if (vel.magnitude > expThreshold)
+        if (Time.time - startTime > 2f)
         {
-            SpawnAndPlay(explosion1, hitPoint, rot);
-            SpawnAndPlay(explosion2, hitPoint, rot);
+            if (vel.magnitude > expThreshold)
+            {
+                SpawnAndPlay(explosion1, hitPoint, rot);
+                SpawnAndPlay(explosion2, hitPoint, rot);
 
-            Destroy(gameObject, 0.1f);
+                Destroy(gameObject, 0.1f);
+            }
+            else
+            {
+                SpawnAndPlay(spark, hitPoint, rot);
+            }
         }
-        else
-        {
-            SpawnAndPlay(spark, hitPoint, rot);
-        }
-
 
 
     }
