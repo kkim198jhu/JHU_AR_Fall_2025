@@ -53,7 +53,6 @@ public class Explode : MonoBehaviour
         ParticleSystem ps = Instantiate(prefab, pos, rot);
         ps.Play();
 
-        // Clean up after it finishes
         float life = ps.main.duration;
         if (ps.main.startLifetime.mode == ParticleSystemCurveMode.TwoConstants)
             life += ps.main.startLifetime.constantMax;
