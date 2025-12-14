@@ -88,7 +88,7 @@ PrefabInstance:
       addedObject: {fileID: 7856922081373868136}
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: a73a5da5e1f9745518527e1d673abf77, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1857337283031718005}
+      addedObject: {fileID: -5633126106182521590}
     - targetCorrespondingSourceObject: {fileID: 5030188287657090501, guid: a73a5da5e1f9745518527e1d673abf77, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6487955082361407788}
@@ -258,7 +258,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!114 &-1857337283031718005
+--- !u!114 &-5633126106182521590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,11 +267,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6261947053556409008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c59415d858a09498109d1f4a9ced9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2be36c19030b0d94ea85a247e109744d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Explode
-  explosion1: {fileID: 4187817191178559793, guid: 080f7c199e943b94bb6abee6c99b2a95, type: 3}
-  explosion2: {fileID: 5484455973323147821, guid: eb7d21f9ce121d848b0ec2a254323ce0, type: 3}
-  rb: {fileID: 0}
-  spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
-  expThreshold: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Splash
+  explosion1Prefab: {fileID: 5935734030816758649, guid: 171eda3d320936a43894866cf3fc40e0, type: 3}
+  explosion2Prefab: {fileID: 0}
+  sparkPrefab: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
+  expThreshold: 1.5

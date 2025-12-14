@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be36c19030b0d94ea85a247e109744d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Splash
-  explosion1Prefab: {fileID: 302334558472608193, guid: 34142f68fbc1a0649987f74b35e2c41d, type: 3}
+  explosion1Prefab: {fileID: 5935734030816758649, guid: 171eda3d320936a43894866cf3fc40e0, type: 3}
   explosion2Prefab: {fileID: 0}
   sparkPrefab: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
   expThreshold: 0.7

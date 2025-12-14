@@ -35,7 +35,7 @@ public class Explode : MonoBehaviour
             SpawnAndPlay(explosion1, hitPoint, rot);
             SpawnAndPlay(explosion2, hitPoint, rot);
 
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject, 0.1f);
         }
         else
         {
@@ -59,7 +59,7 @@ public class Explode : MonoBehaviour
         else
             life += ps.main.startLifetime.constant;
 
-        Destroy(ps.gameObject, life);
+        Destroy(ps.gameObject, .1f);
 
 
 
