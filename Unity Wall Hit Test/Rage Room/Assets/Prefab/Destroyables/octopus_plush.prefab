@@ -303,4 +303,4 @@ MonoBehaviour:
   explosion1Prefab: {fileID: 8843764153139897442, guid: 3f80e651ca43ace4f8927699158c4d0a, type: 3}
   explosion2Prefab: {fileID: 0}
   sparkPrefab: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
-  expThreshold: 1.4
+  expThreshold: 2

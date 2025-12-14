@@ -61,7 +61,6 @@ public class Splash : MonoBehaviour
         //vfx.SendEvent("OnPlay");
 
         vfx.Play();
-
         Destroy(vfx.gameObject, vfxLifetime);
     }
 }

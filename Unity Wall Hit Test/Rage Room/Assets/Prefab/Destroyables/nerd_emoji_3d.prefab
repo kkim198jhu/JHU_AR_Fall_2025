@@ -222,4 +222,4 @@ MonoBehaviour:
   explosion2: {fileID: 5484455973323147821, guid: eb7d21f9ce121d848b0ec2a254323ce0, type: 3}
   rb: {fileID: 0}
   spark: {fileID: 4798404608062739558, guid: a67af4c0c58d7ff41a04ee4b40929aae, type: 3}
-  expThreshold: 1
+  expThreshold: 2
